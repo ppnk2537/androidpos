@@ -1,4 +1,4 @@
-package com.example.androidpos;
+package com.example.androidpos.ui;
 
 public class SaleActivity {
 

@@ -1,4 +1,8 @@
-package com.example.androidpos;
+package com.example.androidpos.ui;
+
+import com.example.androidpos.R;
+import com.example.androidpos.R.id;
+import com.example.androidpos.R.layout;
 
 import android.os.Bundle;
 import android.app.Activity;
