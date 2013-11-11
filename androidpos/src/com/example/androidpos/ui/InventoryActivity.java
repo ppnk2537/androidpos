@@ -29,9 +29,9 @@ public class InventoryActivity extends TabActivity {
 		tab1.setContent( ProductCatAc );
 
 		tab2.setIndicator("Add Item");
-		Intent addItemAc =  new Intent(this,StockActivity.class);
-		tab2.setContent( addItemAc.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-		tab2.setContent( addItemAc );
+		Intent StockAc =  new Intent(this,StockActivity.class);
+		tab2.setContent( StockAc.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+		tab2.setContent( StockAc );
 
 
 		tabHost.addTab( tab1 );
