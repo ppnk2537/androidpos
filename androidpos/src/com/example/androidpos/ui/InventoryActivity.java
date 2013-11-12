@@ -1,8 +1,6 @@
 package com.example.androidpos.ui;
 
 import com.example.androidpos.R;
-import com.example.androidpos.R.layout;
-
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;

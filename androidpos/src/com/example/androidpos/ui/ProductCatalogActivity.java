@@ -10,6 +10,7 @@ import com.example.androidpos.domian.SQLiteDatabaseHandler;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,8 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 public class ProductCatalogActivity extends Activity{
+
+	private ProductCatalog pc;
 	
 	private Button addButton;
 	private List<HashMap<String,String>> listmap;
@@ -27,6 +30,11 @@ public class ProductCatalogActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_product_catalog);
+
+		listview = (ListView) findViewById(R.id.itemlist);
+		
+		ProductCatalog.initInstance( new SQLiteDatabaseHandler(this) );
+		pc = ProductCatalog.getInstance();
 		
 		addButton = (Button) findViewById(R.id.addButton);
 		
@@ -39,17 +47,14 @@ public class ProductCatalogActivity extends Activity{
 			}
 		});
 		
-		listview = (ListView) findViewById(android.R.id.list);
-		
-		//updateListView();
+		updateListView();
 	}
 
 	private void updateListView() {
-		
-		simAdapter = new SimpleAdapter(this, listmap,
-				R.layout.activity_column_product_catalog, new String[] { "id", "name",
-				"price","last_edit"},
-				new int[] {R.id.colId, R.id.colName, R.id.colPrice, R.id.colLastEdit});
+		listmap = pc.getAllProduct();
+		simAdapter = new SimpleAdapter(this, listmap, R.layout.activity_column_product_catalog, new String [] { "id", "name",
+				"price","lastedit" },new int [] {R.id.colId, R.id.colName, R.id.colPrice, R.id.colLastEdit});
+		Log.d("listview", listview.toString());
 		listview.setAdapter(simAdapter);
 	}
 

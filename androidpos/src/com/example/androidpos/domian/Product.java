@@ -1,7 +1,5 @@
 package com.example.androidpos.domian;
 
-import android.util.Log;
-
 public class Product {
 
 	private String _id;

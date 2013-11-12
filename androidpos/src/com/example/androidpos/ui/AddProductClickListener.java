@@ -3,7 +3,6 @@ package com.example.androidpos.ui;
 import com.example.androidpos.domian.Product;
 import com.example.androidpos.domian.ProductCatalog;
 
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;

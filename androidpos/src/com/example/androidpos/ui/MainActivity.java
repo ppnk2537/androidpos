@@ -1,10 +1,6 @@
 package com.example.androidpos.ui;
 
 import com.example.androidpos.R;
-import com.example.androidpos.domian.DatabaseHandler;
-import com.example.androidpos.domian.ProductCatalog;
-import com.example.androidpos.domian.SQLiteDatabaseHandler;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -22,9 +18,6 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		DatabaseHandler dbh = new SQLiteDatabaseHandler(this);
-		ProductCatalog.initInstance(dbh);
 		
 		initComponent();
 		
