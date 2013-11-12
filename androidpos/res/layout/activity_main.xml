@@ -9,29 +9,29 @@
     tools:context=".MainActivity" >
 
     <Button
+        android:id="@+id/report_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="101dp"
+        android:text="Report" />
+
+    <Button
         android:id="@+id/inventory_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/saleBtn"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
+        android:layout_centerVertical="true"
         android:text="Inventory" />
 
     <Button
         android:id="@+id/sale_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/inventory_button"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginBottom="41dp"
         android:text="Sale" />
-
-    <Button
-        android:id="@+id/report_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/inventoryBtn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="90dp"
-        android:text="Report" />
 
 </RelativeLayout>

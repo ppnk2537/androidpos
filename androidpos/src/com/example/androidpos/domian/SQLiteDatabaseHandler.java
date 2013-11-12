@@ -116,8 +116,8 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 			values.put("_id", product.getId() );
 			values.put("name", product.getName() );
 			values.put("tag", product.getTag() );
-			values.put("price", product.getPrice() );
 			values.put("last_edit", product.getLastEdit() );
+			values.put("price", product.getPrice() );
 
 			/** Insert values to database. */
 			long rows = db.insert(CATALOG_TABLE_NAME, null, values);

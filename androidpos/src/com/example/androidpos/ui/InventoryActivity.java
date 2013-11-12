@@ -23,12 +23,12 @@ public class InventoryActivity extends TabActivity {
 		TabSpec tab2 = tabHost.newTabSpec("Second");
 
 
-		tab1.setIndicator("Inventory List");
+		tab1.setIndicator("Product Catalog");
 		Intent ProductCatAc = new Intent(this,ProductCatalogActivity.class);
 		tab1.setContent( ProductCatAc.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
 		tab1.setContent( ProductCatAc );
 
-		tab2.setIndicator("Add Item");
+		tab2.setIndicator("Stock");
 		Intent StockAc =  new Intent(this,StockActivity.class);
 		tab2.setContent( StockAc.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
 		tab2.setContent( StockAc );

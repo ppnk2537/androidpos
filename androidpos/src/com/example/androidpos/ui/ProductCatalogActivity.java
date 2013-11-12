@@ -8,13 +8,17 @@ import com.example.androidpos.domian.ProductCatalog;
 import com.example.androidpos.domian.SQLiteDatabaseHandler;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 public class ProductCatalogActivity extends Activity{
 	
+	private Button addButton;
 	private List<HashMap<String,String>> listmap;
 	private ListView listview;
 	private SimpleAdapter simAdapter;
@@ -23,12 +27,21 @@ public class ProductCatalogActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_product_catalog);
-
-		ProductCatalog.initInstance( new SQLiteDatabaseHandler(this) );
+		
+		addButton = (Button) findViewById(R.id.addButton);
+		
+		addButton.setOnClickListener( new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent addProduct = new Intent(ProductCatalogActivity.this,AddProductActivity.class);
+				startActivity(addProduct);
+			}
+		});
 		
 		listview = (ListView) findViewById(android.R.id.list);
 		
-		updateListView();
+		//updateListView();
 	}
 
 	private void updateListView() {

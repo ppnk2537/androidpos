@@ -22,6 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.androidpos.ui.InventoryActivity" ></activity>
+        <activity android:name="com.example.androidpos.ui.ProductCatalogActivity"></activity>
+        <activity android:name="com.example.androidpos.ui.StockActivity"></activity>
+        <activity android:name="com.example.androidpos.ui.AddProductActivity"></activity>
+        <activity android:name="com.example.androidpos.ui.SaleActivity"></activity>
+        
     </application>
 
 </manifest>

@@ -9,8 +9,6 @@ public class ProductCatalog {
 	public ProductCatalog(DatabaseHandler dbh) {
 		this.dbh = dbh;
 	}
-
-	
 	
 	/**
 	 * Get instance of inventory.
