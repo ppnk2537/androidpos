@@ -1,8 +1,10 @@
-package com.example.androidpos.ui;
+package com.example.androidpos.inventoryui;
 
 import com.example.androidpos.R;
-import com.example.androidpos.domian.Product;
-import com.example.androidpos.domian.ProductCatalog;
+import com.example.androidpos.inventory.Product;
+import com.example.androidpos.inventory.ProductCatalog;
+import com.example.androidpos.inventorylistener.EditProductClickListener;
+import com.example.androidpos.inventorylistener.RemoveProductClickListener;
 
 import android.os.Bundle;
 import android.app.Activity;

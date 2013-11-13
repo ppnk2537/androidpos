@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.androidpos.ui.MainActivity"
+            android:name="com.example.androidpos.authenticateui.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,19 +22,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.androidpos.ui.InventoryActivity" >
+        <activity android:name="com.example.androidpos.inventoryui.InventoryActivity" >
         </activity>
-        <activity android:name="com.example.androidpos.ui.ProductCatalogActivity" >
+        <activity android:name="com.example.androidpos.inventoryui.ProductCatalogActivity" >
         </activity>
-        <activity android:name="com.example.androidpos.ui.StockActivity" >
+        <activity android:name="com.example.androidpos.inventoryui.StockActivity" >
         </activity>
-        <activity android:name="com.example.androidpos.ui.AddProductActivity" >
+        <activity android:name="com.example.androidpos.inventoryui.AddProductActivity" >
         </activity>
-        <activity android:name="com.example.androidpos.ui.SaleActivity" >
+        <activity android:name="com.example.androidpos.inventoryui.AddItemActivity" >
         </activity>
-        <activity android:name="com.example.androidpos.ui.EditProductActivity" >
+        <activity android:name="com.example.androidpos.inventoryui.EditProductActivity" >
         </activity>
-        <activity android:name="com.example.androidpos.ui.AddItemActivity" >
+        <activity android:name="com.example.androidpos.saleui.SaleActivity" >
         </activity>
         <activity
             android:name="com.example.androidpos.StockActivity"

@@ -1,6 +1,9 @@
-package com.example.androidpos.ui;
+package com.example.androidpos.authenticateui;
 
 import com.example.androidpos.R;
+import com.example.androidpos.inventoryui.InventoryActivity;
+import com.example.androidpos.saleui.SaleActivity;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;

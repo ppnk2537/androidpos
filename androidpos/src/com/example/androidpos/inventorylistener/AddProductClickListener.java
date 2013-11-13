@@ -1,7 +1,9 @@
-package com.example.androidpos.ui;
+package com.example.androidpos.inventorylistener;
 
-import com.example.androidpos.domian.Product;
-import com.example.androidpos.domian.ProductCatalog;
+import com.example.androidpos.inventory.Product;
+import com.example.androidpos.inventory.ProductCatalog;
+import com.example.androidpos.inventoryui.AddProductActivity;
+import com.example.androidpos.inventoryui.InventoryActivity;
 
 import android.content.Intent;
 import android.view.View;

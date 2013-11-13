@@ -1,8 +1,10 @@
-package com.example.androidpos.domian;
+package com.example.androidpos.inventory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import com.example.androidpos.dao.DatabaseHandler;
 
 public class ProductCatalog {
 	

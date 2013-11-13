@@ -1,4 +1,7 @@
-package com.example.androidpos.ui;
+package com.example.androidpos.inventorylistener;
+
+
+import com.example.androidpos.inventoryui.AddProductActivity;
 
 import android.content.Intent;
 import android.view.View;

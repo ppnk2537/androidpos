@@ -1,10 +1,10 @@
-package com.example.androidpos.ui;
+package com.example.androidpos.inventoryui;
 
 import java.util.HashMap;
 import java.util.List;
 
 import com.example.androidpos.R;
-import com.example.androidpos.domian.Stock;
+import com.example.androidpos.inventory.Stock;
 
 import android.app.Activity;
 import android.content.Intent;

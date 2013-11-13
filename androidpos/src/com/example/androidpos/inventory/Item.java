@@ -1,18 +1,18 @@
-package com.example.androidpos.domian;
+package com.example.androidpos.inventory;
 
-public class Product {
+public class Item {
 
 	private String _id;
 	private String name;
-	private String tag;
-	private double price;
+	private double cost;
+	private int quantity;
 	private String lastEdit;
 	
-	public Product(String[] data) {
+	public Item(String[] data) {
 		this._id = data[0];
 		this.name = data[1];
-		this.price = Double.parseDouble(data[2]);
-		this.tag = data[3];
+		this.cost = Double.parseDouble(data[2]);
+		this.quantity = Integer.parseInt(data[3]);
 		this.lastEdit = data[4];
 	}
 	
@@ -24,12 +24,11 @@ public class Product {
 		return this.name;
 	}
 
-	public String getTag() {
-		return this.tag;
+	public int getQuantity() {
+		return this.quantity;
 	}
-
-	public double getPrice() {
-		return this.price;
+	public double getCost() {
+		return this.cost;
 	}
 
 	public String getLastEdit() {

@@ -1,6 +1,8 @@
-package com.example.androidpos.ui;
+package com.example.androidpos.inventoryui;
 
 import com.example.androidpos.R;
+import com.example.androidpos.inventorylistener.AddItemClickListener;
+import com.example.androidpos.inventorylistener.FindItemClickListener;
 
 import android.app.Activity;
 import android.os.Bundle;

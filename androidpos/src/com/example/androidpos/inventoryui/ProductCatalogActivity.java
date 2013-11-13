@@ -1,13 +1,13 @@
-package com.example.androidpos.ui;
+package com.example.androidpos.inventoryui;
 
 import java.util.HashMap;
 import java.util.List;
 
 import com.example.androidpos.R;
-import com.example.androidpos.domian.DatabaseHandler;
-import com.example.androidpos.domian.ProductCatalog;
-import com.example.androidpos.domian.SQLiteDatabaseHandler;
-import com.example.androidpos.domian.Stock;
+import com.example.androidpos.dao.DatabaseHandler;
+import com.example.androidpos.dao.SQLiteDatabaseHandler;
+import com.example.androidpos.inventory.ProductCatalog;
+import com.example.androidpos.inventory.Stock;
 
 import android.app.Activity;
 import android.content.Intent;

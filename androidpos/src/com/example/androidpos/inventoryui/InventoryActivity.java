@@ -1,4 +1,4 @@
-package com.example.androidpos.ui;
+package com.example.androidpos.inventoryui;
 
 import com.example.androidpos.R;
 import android.app.TabActivity;

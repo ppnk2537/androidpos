@@ -1,4 +1,7 @@
-package com.example.androidpos.domian;
+package com.example.androidpos.dao;
+
+import com.example.androidpos.inventory.Item;
+import com.example.androidpos.inventory.Product;
 
 public interface DatabaseHandler {
 

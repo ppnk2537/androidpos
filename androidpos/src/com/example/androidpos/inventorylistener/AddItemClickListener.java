@@ -1,8 +1,10 @@
-package com.example.androidpos.ui;
+package com.example.androidpos.inventorylistener;
 
-import com.example.androidpos.domian.Item;
-import com.example.androidpos.domian.ProductCatalog;
-import com.example.androidpos.domian.Stock;
+import com.example.androidpos.inventory.Item;
+import com.example.androidpos.inventory.ProductCatalog;
+import com.example.androidpos.inventory.Stock;
+import com.example.androidpos.inventoryui.AddItemActivity;
+import com.example.androidpos.inventoryui.InventoryActivity;
 
 import android.content.Intent;
 import android.view.View;
@@ -51,7 +53,7 @@ public class AddItemClickListener implements OnClickListener {
 		
 		Item item = new Item(data);
 		
-		//if ( pc.isProductExsit(_id) )
+		if ( pc.isProductExsit(_id) )
 			if ( stock.addProduct(item) ) {
 				Intent inventory = new Intent(aia,InventoryActivity.class);
 				aia.startActivity(inventory);	
