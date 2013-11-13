@@ -18,7 +18,6 @@ public class EditItemActivity extends Activity {
 	private EditText edit_cost;
 	private EditText edit_quantity;
 	private Button doneButton;
-	private Button removeButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +51,6 @@ public class EditItemActivity extends Activity {
 		doneButton = (Button) findViewById(R.id.doneButton);
 		doneButton.setOnClickListener( new EditItemClickListener(this, _id, name, edit_cost, edit_quantity, lastEdit));
 		
-		removeButton = (Button) findViewById(R.id.removeButton);
 	}
 
 	@Override
