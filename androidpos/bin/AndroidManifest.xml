@@ -32,6 +32,8 @@
         </activity>
         <activity android:name="com.example.androidpos.ui.SaleActivity" >
         </activity>
+        <activity android:name="com.example.androidpos.ui.EditProductActivity" >
+        </activity>
         <activity
             android:name="com.example.androidpos.StockActivity"
             android:label="@string/title_activity_stock" >

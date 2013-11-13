@@ -30,8 +30,24 @@ public class ProductCatalog {
 		instance = new ProductCatalog( dbc );
 	}
 
+	public Product getProduct(String _id) {
+		return dbh.selectProduct(_id);
+	}
+	
 	public boolean addProduct(Product product) {
 		if ( dbh.insertProduct(product) > 0 )
+			return true;
+		return false;
+	}
+	
+	public boolean editProduct(Product product) {
+		if ( dbh.updateProduct(product) > 0 )
+			return true;
+		return false;
+	}
+
+	public boolean removeProduct(String _id) {
+		if ( dbh.deleteProduct(_id) > 0 )
 			return true;
 		return false;
 	}
@@ -50,14 +66,11 @@ public class ProductCatalog {
 				HashMap<String, String> map = new HashMap<String, String>();
 				map.put("id", data[i][0]);
 				map.put("name", data[i][1]);
-				map.put("price", data[i][4]);
-				map.put("lastedit", data[i][3]);
+				map.put("price", data[i][2]);
+				map.put("lastedit", data[i][4]);
 				list.add(map);
 			}
 		return list;
 	}
 
-	public static void Refresh() {
-
-	}
 }

@@ -3,39 +3,36 @@ package com.example.androidpos.ui;
 import com.example.androidpos.domian.Product;
 import com.example.androidpos.domian.ProductCatalog;
 
-import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
+import android.widget.Toast;
 
-public class AddProductClickListener implements OnClickListener {
+public class EditProductClickListener implements OnClickListener {
 
-	private EditText edit_id;
-	private EditText edit_name;
 	private EditText edit_price;
 	private EditText edit_tag;
+
 	private String _id;
 	private String name;
 	private String price;
 	private String tag;
 	
-	private AddProductActivity apa;
+	private EditProductActivity epa;
 	
-	public AddProductClickListener( AddProductActivity apa, EditText edit_id, EditText edit_name,
+	public EditProductClickListener( EditProductActivity epa, String _id, String name,
 			EditText edit_price, EditText edit_tag) {
-		this.apa = apa;
-		this.edit_id = edit_id;
-		this.edit_name = edit_name;
+		this.epa = epa;
+		this._id = _id;
+		this.name = name;
 		this.edit_price = edit_price;
 		this.edit_tag = edit_tag;
 	}
-
+	
 	@Override
 	public void onClick(View v) {
 		ProductCatalog pc = ProductCatalog.getInstance();
 
-		this._id = edit_id.getText().toString();
-		this.name = edit_name.getText().toString();
 		this.price = edit_price.getText().toString();
 		this.tag = edit_tag.getText().toString();
 		
@@ -45,13 +42,11 @@ public class AddProductClickListener implements OnClickListener {
 		data[2] = price;
 		data[3] = tag;
 		data[4] = ""+System.currentTimeMillis();
-		
+				
 		Product product = new Product(data);
 		
-		if ( pc.addProduct(product) ) {
-			Intent inventory = new Intent(apa,InventoryActivity.class);
-			apa.startActivity(inventory);	
-		}
+		if ( pc.editProduct(product) )
+			Toast.makeText(epa, "Edit Success", Toast.LENGTH_LONG).show();
 	}
 
 }

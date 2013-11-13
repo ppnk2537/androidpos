@@ -11,16 +11,18 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 public class StockActivity extends Activity{
+	
 	private List<HashMap<String,String>> listmap;
 	private ListView listview;
 	private SimpleAdapter simAdapter;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_stock);
 		listview = (ListView) findViewById(R.id.itemlist);
 	}
+	
 	private void updateListView() {
 
 		simAdapter = new SimpleAdapter(this, listmap,
