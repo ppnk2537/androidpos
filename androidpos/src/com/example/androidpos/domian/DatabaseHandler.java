@@ -82,6 +82,5 @@ public interface DatabaseHandler {
 	 * @return number of row that has been delete, otherwise -1.
 	 */
 	public long deleteStock( String name );
-
 		
 }

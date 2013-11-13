@@ -78,5 +78,4 @@ public class ProductCatalog {
 		return list;
 	}
 
-
 }
