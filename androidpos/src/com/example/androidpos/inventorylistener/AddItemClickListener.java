@@ -54,7 +54,7 @@ public class AddItemClickListener implements OnClickListener {
 		Item item = new Item(data);
 		
 		if ( pc.isProductExsit(_id) )
-			if ( stock.addProduct(item) ) {
+			if ( stock.addItem(item) ) {
 				Intent inventory = new Intent(aia,InventoryActivity.class);
 				aia.startActivity(inventory);	
 			}

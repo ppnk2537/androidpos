@@ -20,9 +20,12 @@ public interface DatabaseHandler {
 	/**
 	 * Select Stockription from database
 	 * @param _id code identify where data is.
+	 * @param lastEdit 
 	 * @return database data , otherwise null.
 	 */
-	public String[] selectStock( String name );
+	public Item selectItem( String _id, String lastEdit );
+	
+	public Item [] selectStock( String _id);
 		
 	/**
 	 * Select all data from database.
@@ -47,7 +50,7 @@ public interface DatabaseHandler {
 	 * @param cost
 	 * @return number of row that has been insert, otherwise -1.
 	 */
-	public long insertStock( Item item );
+	public long insertItem( Item item );
 	
 
 	/**
@@ -63,7 +66,7 @@ public interface DatabaseHandler {
 	 * @param name where data is.
 	 * @return number of row that has been update, otherwise -1.
 	 */
-	public long updateStock( String name , String Stockription , String unit ,  double price , double cost);
+	public long updateItem( Item item , String lastEdit );
 	
 	/**
 	 * Update database data

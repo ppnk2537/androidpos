@@ -34,11 +34,22 @@ public class Stock {
 		instance = new Stock(dbc);
 	}
 
-	public boolean addProduct(Item item) {
-		if ( dbh.insertStock(item) > 0 )
+	public boolean addItem(Item item) {
+		if ( dbh.insertItem(item) > 0 )
 			return true;
 		return false;
 	}
+
+	public boolean editItem(Item item, String lastEdit) {
+		if ( dbh.updateItem(item, lastEdit) > 0)
+			return true;
+		return false;
+	}
+	
+	public Item getItem(String _id,String lastEdit) {
+		return dbh.selectItem(_id,lastEdit);
+	}
+
 
 	/**
 	 * Get all item from inventory table.
@@ -62,5 +73,5 @@ public class Stock {
 			}
 		return list;
 	}
-
+	
 }

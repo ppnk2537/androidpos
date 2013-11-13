@@ -10,9 +10,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class StockActivity extends Activity{
 	
@@ -37,6 +39,22 @@ public class StockActivity extends Activity{
 			public void onClick(View arg0) {
 				Intent inventory = new Intent(StockActivity.this,AddItemActivity.class);
 				startActivity(inventory);
+			}
+		});
+		
+
+		listview.setOnItemClickListener( new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				final int position = arg2;
+				final String _id = listmap.get(position).get("id");
+				final String lastEdit = listmap.get(position).get("lastEdit");
+				Intent editItem = new Intent(StockActivity.this,EditItemActivity.class);
+				editItem.putExtra("id", _id);
+				editItem.putExtra("lastEdit", lastEdit);
+				startActivity(editItem);
 			}
 		});
 		

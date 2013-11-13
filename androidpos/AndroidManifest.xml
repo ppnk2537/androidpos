@@ -34,6 +34,8 @@
         </activity>
         <activity android:name="com.example.androidpos.inventoryui.EditProductActivity" >
         </activity>
+        <activity android:name="com.example.androidpos.inventoryui.EditItemActivity" >
+        </activity>
         <activity android:name="com.example.androidpos.saleui.SaleActivity" >
         </activity>
         <activity

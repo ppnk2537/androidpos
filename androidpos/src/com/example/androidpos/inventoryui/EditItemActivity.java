@@ -1,60 +1,58 @@
 package com.example.androidpos.inventoryui;
 
 import com.example.androidpos.R;
-import com.example.androidpos.inventory.Product;
-import com.example.androidpos.inventory.ProductCatalog;
-import com.example.androidpos.inventorylistener.EditProductClickListener;
-import com.example.androidpos.inventorylistener.RemoveProductClickListener;
+import com.example.androidpos.inventory.Item;
+import com.example.androidpos.inventory.Stock;
+import com.example.androidpos.inventorylistener.EditItemClickListener;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.util.Log;
 import android.view.Menu;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class EditProductActivity extends Activity {
+public class EditItemActivity extends Activity {
 
 	private EditText edit_id;
 	private EditText edit_name;
-	private EditText edit_price;
-	private EditText edit_tag;
+	private EditText edit_cost;
+	private EditText edit_quantity;
 	private Button doneButton;
 	private Button removeButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_edit_product);
+		setContentView(R.layout.activity_edit_item);
 		initComponent();
 	}
 
 	private void initComponent() {
 		edit_id = (EditText) findViewById(R.id.edit_id);
 		edit_name = (EditText) findViewById(R.id.edit_name);
-		edit_price = (EditText) findViewById(R.id.edit_price);
-		edit_tag = (EditText) findViewById(R.id.edit_tag);
+		edit_cost = (EditText) findViewById(R.id.edit_cost);
+		edit_quantity = (EditText) findViewById(R.id.edit_quantity);
 		
 		String _id = getIntent().getExtras().getString("id");
+		String lastEdit = getIntent().getExtras().getString("lastEdit");
 		
-		ProductCatalog pc = ProductCatalog.getInstance();
-		Product product = pc.getProduct(_id);
+		Stock stock = Stock.getInstance();
+		Item item = stock.getItem(_id,lastEdit);
 		
-		String name = product.getName();
+		String name = item.getName();
 		
 		edit_id.setText( _id );
 		edit_id.setEnabled(false);
 		edit_name.setText(name);
 		edit_name.setEnabled(false);
-		
-		edit_price.setText(Double.toString(product.getPrice()));
-		edit_tag.setText(product.getTag());
+
+		edit_cost.setText(Double.toString(item.getCost()));
+		edit_quantity.setText(Integer.toString(item.getQuantity()));
 		
 		doneButton = (Button) findViewById(R.id.doneButton);
-		doneButton.setOnClickListener( new EditProductClickListener(this, _id, name, edit_price, edit_tag));
+		doneButton.setOnClickListener( new EditItemClickListener(this, _id, name, edit_cost, edit_quantity, lastEdit));
 		
 		removeButton = (Button) findViewById(R.id.removeButton);
-		removeButton.setOnClickListener( new RemoveProductClickListener(this, _id) );
 	}
 
 	@Override
