@@ -54,6 +54,8 @@ public class Stock {
 				map.put("name", data[i][1]);
 				map.put("cost", data[i][2]);
 				map.put("quantity", data[i][3]);
+				map.put("lastEdit", data[i][4]);
+								
 				list.add(map);
 			}
 		return list;

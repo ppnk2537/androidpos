@@ -3,6 +3,7 @@ package com.example.androidpos.ui;
 import com.example.androidpos.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.Button;
@@ -25,6 +26,8 @@ public class AddProductActivity extends Activity {
 	private EditText edit_tag;
 	/**The add button*/
 	private Button addButton;
+	/**The scan button*/
+	private Button scanButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +47,25 @@ public class AddProductActivity extends Activity {
 		edit_price = (EditText) findViewById(R.id.edit_price);
 		edit_tag = (EditText) findViewById(R.id.edit_tag);
 		addButton = (Button) findViewById(R.id.addButton);
-		
+		scanButton = (Button) findViewById(R.id.scanButton);
+
 		AddProductClickListener apcl = new AddProductClickListener(this,edit_id,edit_name,edit_price,edit_tag);
-		
 		addButton.setOnClickListener(apcl);
+
+		ScanProductClickListener spcl = new ScanProductClickListener(this);
+		scanButton.setOnClickListener(spcl);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		if (requestCode == 0)
+		{
+			if (resultCode == RESULT_OK) 
+			{
+				String contents = intent.getStringExtra("SCAN_RESULT");            
+				edit_id.setText(contents);
+			}
+		}
 	}
 
 	@Override

@@ -34,6 +34,10 @@ public class ProductCatalogActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_product_catalog);
 
+		DatabaseHandler dbh = new SQLiteDatabaseHandler(this);
+		ProductCatalog.initInstance( dbh );
+		Stock.initInstance(dbh);
+		
 		listview = (ListView) findViewById(R.id.itemlist);
 		
 		listview.setOnItemClickListener( new OnItemClickListener() {
@@ -48,10 +52,6 @@ public class ProductCatalogActivity extends Activity{
 				startActivity(editProduct);
 			}
 		});
-		
-		DatabaseHandler dbh = new SQLiteDatabaseHandler(this);
-		ProductCatalog.initInstance( dbh );
-		Stock.initInstance(dbh);
 		
 		pc = ProductCatalog.getInstance();
 		

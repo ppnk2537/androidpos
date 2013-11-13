@@ -47,8 +47,8 @@ public class StockActivity extends Activity{
 		listmap = stock.getAllItem();
 		simAdapter = new SimpleAdapter(this, listmap,
 				R.layout.activity_column_stock, new String[] { "id", "name",
-				"cost","quantity"},
-				new int[] {R.id.colId, R.id.colName, R.id.colCost, R.id.colQuantity});
+				"cost","quantity","lastEdit"},
+				new int[] {R.id.colId, R.id.colName, R.id.colCost, R.id.colQuantity, R.id.colLastEdit});
 		listview.setAdapter(simAdapter);
 	}
 }
