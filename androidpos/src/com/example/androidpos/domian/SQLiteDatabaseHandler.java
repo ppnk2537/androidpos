@@ -275,9 +275,9 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 		db.execSQL("CREATE TABLE " + STOCK_TABLE_NAME
 				+ " ( _id INTEGER,"
 				+ " name TEXT(100),"
+				+ " cost DOUBLE," 
 				+ " quantity INTEGER," 
-				+ " last_edit TEXT(100)," 
-				+ " cost DOUBLE);");
+				+ " last_edit TEXT(100));");
 		Log.d("CREATE STOCK TABLE", "Success");
 	}
 

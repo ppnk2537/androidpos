@@ -4,13 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.example.androidpos.R;
+import com.example.androidpos.domian.DatabaseHandler;
 import com.example.androidpos.domian.ProductCatalog;
 import com.example.androidpos.domian.SQLiteDatabaseHandler;
+import com.example.androidpos.domian.Stock;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -48,7 +49,10 @@ public class ProductCatalogActivity extends Activity{
 			}
 		});
 		
-		ProductCatalog.initInstance( new SQLiteDatabaseHandler(this) );
+		DatabaseHandler dbh = new SQLiteDatabaseHandler(this);
+		ProductCatalog.initInstance( dbh );
+		Stock.initInstance(dbh);
+		
 		pc = ProductCatalog.getInstance();
 		
 		addButton = (Button) findViewById(R.id.addButton);

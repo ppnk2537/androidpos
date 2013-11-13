@@ -52,6 +52,11 @@ public class ProductCatalog {
 		return false;
 	}
 	
+	public boolean isProductExsit(String _id) {
+		Product product = getProduct(_id);
+		return product != null;
+	}
+	
 	/**
 	 * Get all item from inventory table.
 	 * 
@@ -72,5 +77,6 @@ public class ProductCatalog {
 			}
 		return list;
 	}
+
 
 }
