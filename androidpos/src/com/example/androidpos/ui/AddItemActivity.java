@@ -14,7 +14,9 @@ public class AddItemActivity extends Activity {
 	private EditText edit_name;
 	private EditText edit_cost;
 	private EditText edit_quantity;
+	
 	private Button addButton;
+	private Button findButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,10 @@ public class AddItemActivity extends Activity {
 
 		addButton.setOnClickListener(new AddItemClickListener(this, edit_id,
 				edit_name, edit_cost, edit_quantity));
+		
+		findButton = (Button) findViewById(R.id.findButton);
+		findButton.setOnClickListener(new FindItemClickListener(edit_id,
+				edit_name));
 	}
 
 	@Override
