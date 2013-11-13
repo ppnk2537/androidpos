@@ -11,7 +11,7 @@ public interface DatabaseHandler {
 	 * @param _id code identify where data is.
 	 * @return database data , otherwise null.
 	 */
-	public String[] selectProduct( String _id );
+	public Product selectProduct( String _id );
 		
 	
 	/**
@@ -53,7 +53,7 @@ public interface DatabaseHandler {
 	 * @param name of Product.
 	 * @return number of row that has been insert, otherwise -1.
 	 */
-	public long updateProduct( String _id , String name , int quantity );
+	public long updateProduct( Product product );
 	
 	/**
 	 * Update database data

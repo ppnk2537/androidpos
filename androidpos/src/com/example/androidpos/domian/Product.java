@@ -11,8 +11,8 @@ public class Product {
 	public Product(String[] data) {
 		this._id = data[0];
 		this.name = data[1];
-		this.tag = data[2];
-		this.price = Double.parseDouble(data[3]);
+		this.price = Double.parseDouble(data[2]);
+		this.tag = data[3];
 		this.lastEdit = data[4];
 	}
 	

@@ -18,7 +18,7 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 	}
 
 	@Override
-	public String[] selectProduct(String _id) {
+	public Product selectProduct(String _id) {
 		try {
 			String[] data = null;
 
@@ -38,7 +38,9 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 			/** Close database and cursor. */
 			cursor.close();
 			db.close();
-			return data;
+			
+			Product product = new Product(data);
+			return product;
 		} catch (Exception e) {
 			return null;
 		}
@@ -156,19 +158,20 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 	}
 
 	@Override
-	public long updateProduct(String _id, String name, int quantity) {
+	public long updateProduct(Product product) {
 		try {
 			/** Get database. */
 			SQLiteDatabase db = this.getWritableDatabase();
 
 			/** Prepare values to insert. */
 			ContentValues values = new ContentValues();
-			values.put("_id", _id);
-			values.put("name", name);
-			values.put("quantity", quantity);
+			values.put("_id", product.getId() );
+			values.put("price", product.getPrice() );
+			values.put("tag", product.getTag() );
+			values.put("last_edit", product.getLastEdit());
 
 			long rows = db.update(CATALOG_TABLE_NAME, values, "_id = ?",
-					new String[] { String.valueOf(_id) });
+					new String[] { String.valueOf( product.getId() ) });
 
 			/** Close database. */
 			db.close();
@@ -265,9 +268,9 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 		db.execSQL("CREATE TABLE " + CATALOG_TABLE_NAME
 				+ "( _id INTEGER PRIMARY KEY," 
 				+ " name TEXT(100)," 
-				+ " tag TEXT(100),"
-				+ " last_edit TEXT(100)," 
-				+ " price DOUBLE);");
+				+ " price DOUBLE,"
+				+ " tag TEXT(100)," 
+				+ " last_edit TEXT(100));");
 		Log.d("CREATE CATALOG TABLE", "Success");
 		db.execSQL("CREATE TABLE " + STOCK_TABLE_NAME
 				+ " ( _id INTEGER,"

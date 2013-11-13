@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -32,6 +34,19 @@ public class ProductCatalogActivity extends Activity{
 		setContentView(R.layout.activity_product_catalog);
 
 		listview = (ListView) findViewById(R.id.itemlist);
+		
+		listview.setOnItemClickListener( new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				final int position = arg2;
+				final String _id = listmap.get(position).get("id");
+				Intent editProduct = new Intent(ProductCatalogActivity.this,EditProductActivity.class);
+				editProduct.putExtra("id", _id);
+				startActivity(editProduct);
+			}
+		});
 		
 		ProductCatalog.initInstance( new SQLiteDatabaseHandler(this) );
 		pc = ProductCatalog.getInstance();
