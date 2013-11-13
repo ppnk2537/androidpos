@@ -30,6 +30,10 @@ public class ProductCatalog {
 		instance = new ProductCatalog( dbc );
 	}
 
+	public Product getProduct(String _id) {
+		return dbh.selectProduct(_id);
+	}
+	
 	public boolean addProduct(Product product) {
 		if ( dbh.insertProduct(product) > 0 )
 			return true;
@@ -38,6 +42,12 @@ public class ProductCatalog {
 	
 	public boolean editProduct(Product product) {
 		if ( dbh.updateProduct(product) > 0 )
+			return true;
+		return false;
+	}
+
+	public boolean removeProduct(String _id) {
+		if ( dbh.deleteProduct(_id) > 0 )
 			return true;
 		return false;
 	}
@@ -61,10 +71,6 @@ public class ProductCatalog {
 				list.add(map);
 			}
 		return list;
-	}
-
-	public Product getProduct(String _id) {
-		return dbh.selectProduct(_id);
 	}
 
 }

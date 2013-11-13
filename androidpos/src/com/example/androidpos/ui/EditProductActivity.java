@@ -56,7 +56,9 @@ public class EditProductActivity extends Activity {
 		
 		doneButton = (Button) findViewById(R.id.doneButton);
 		doneButton.setOnClickListener( new EditProductClickListener(this, _id, name, edit_price, edit_tag));
+		
 		removeButton = (Button) findViewById(R.id.removeButton);
+		removeButton.setOnClickListener( new RemoveProductClickListener(this, _id) );
 	}
 
 	@Override

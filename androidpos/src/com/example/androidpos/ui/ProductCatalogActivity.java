@@ -69,7 +69,6 @@ public class ProductCatalogActivity extends Activity{
 		listmap = pc.getAllProduct();
 		simAdapter = new SimpleAdapter(this, listmap, R.layout.activity_column_product_catalog, new String [] { "id", "name",
 				"price","lastedit" },new int [] {R.id.colId, R.id.colName, R.id.colPrice, R.id.colLastEdit});
-		Log.d("listview", listview.toString());
 		listview.setAdapter(simAdapter);
 	}
 

@@ -1,15 +1,12 @@
 package com.example.androidpos.ui;
 
-import java.util.Arrays;
-
 import com.example.androidpos.domian.Product;
 import com.example.androidpos.domian.ProductCatalog;
 
-import android.util.Log;
+import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class AddProductClickListener implements OnClickListener {
 
@@ -51,9 +48,10 @@ public class AddProductClickListener implements OnClickListener {
 		
 		Product product = new Product(data);
 		
-		if ( pc.addProduct(product) )
-			Toast.makeText(apa, "Add Success", Toast.LENGTH_LONG).show();
-		
+		if ( pc.addProduct(product) ) {
+			Intent inventory = new Intent(apa,InventoryActivity.class);
+			apa.startActivity(inventory);	
+		}
 	}
 
 }
