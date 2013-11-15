@@ -1,6 +1,6 @@
 package com.example.androidpos.inventory;
 
-public class Item {
+public class Item implements Comparable<Item> {
 
 	private String _id;
 	private String name;
@@ -37,6 +37,11 @@ public class Item {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+
+	@Override
+	public int compareTo(Item another) {
+		return (int)(Long.valueOf(this.lastEdit) - Long.valueOf(another.getLastEdit()));
 	}
 
 }

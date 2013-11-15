@@ -89,10 +89,9 @@
         android:id="@+id/doneButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/removeButton"
-        android:layout_alignBottom="@+id/removeButton"
-        android:layout_toRightOf="@+id/txt_id"
+        android:layout_below="@+id/edit_quantity"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
         android:text="Done" />
-
 
 </RelativeLayout>
