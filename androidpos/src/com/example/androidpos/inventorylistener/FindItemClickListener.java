@@ -2,7 +2,11 @@ package com.example.androidpos.inventorylistener;
 
 import com.example.androidpos.inventory.Product;
 import com.example.androidpos.inventory.ProductCatalog;
+import com.example.androidpos.inventoryui.AddItemActivity;
+import com.example.androidpos.inventoryui.AddProductActivity;
+import com.example.androidpos.inventoryui.ProductCatalogActivity;
 
+import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -11,10 +15,16 @@ public class FindItemClickListener implements OnClickListener {
 
 	private EditText edit_id;
 	private EditText edit_name;
+	private EditText edit_price;
+	private EditText edit_tag;
+	private AddItemActivity aia;
 	
-	public FindItemClickListener(EditText edit_id, EditText edit_name) {
+	public FindItemClickListener(AddItemActivity aia, EditText edit_id, EditText edit_name,EditText edit_price,EditText edit_tag) {
+		this.aia = aia;
 		this.edit_id = edit_id;
 		this.edit_name = edit_name;
+		this.edit_price = edit_price;
+		this.edit_tag = edit_tag;
 	}
 
 	@Override
@@ -26,7 +36,18 @@ public class FindItemClickListener implements OnClickListener {
 		if ( pc.isProductExsit(_id) ) {
 			Product product = pc.getProduct(_id);
 			edit_name.setText( product.getName() );
+			edit_id.setText(product.getId());
+			edit_price.setText(product.getPrice()+"");
+			edit_tag.setText(product.getTag());
+			
+			edit_price.setEnabled(false);
+			edit_tag.setEnabled(false);
 		}
+//		else {
+//			Intent addProduct = new Intent(aia,AddProductActivity.class);
+//			aia.startActivity(addProduct);
+//		}
+		
 	}
 
 }

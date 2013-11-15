@@ -54,6 +54,7 @@ public class AddProductClickListener implements OnClickListener {
 			Intent inventory = new Intent(apa,InventoryActivity.class);
 			apa.startActivity(inventory);	
 		}
+		
 	}
 
 }

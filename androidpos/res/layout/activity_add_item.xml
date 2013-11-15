@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/edit_id"
         android:layout_below="@+id/edit_id"
-        android:text="name:"
+        android:text="Name:"
         android:textSize="20dp" />
 
     <EditText
@@ -42,27 +42,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:text="_id:"
+        android:layout_marginTop="10dp"
+        android:text="ID"
         android:textSize="20dp" />
-
-    <Button
-        android:id="@+id/addButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="49dp"
-        android:text="Add" />
 
     <EditText
         android:id="@+id/edit_cost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/edit_name"
-        android:layout_below="@+id/edit_name"
-        android:layout_marginTop="40dp"
+        android:layout_below="@+id/txt_cost"
+        
         android:ems="10" />
 
     <TextView
@@ -71,27 +61,56 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/edit_cost"
         android:layout_below="@+id/edit_name"
-        android:layout_marginTop="14dp"
-        android:text="cost:"
+        android:layout_marginTop="10dp"
+        android:text="Cost:"
         android:textSize="20dp" />
+    
+    <TextView
+        android:id="@+id/txt_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_cost"
+        android:layout_below="@+id/edit_cost"
+        android:layout_marginTop="10dp"
+        android:text="Price" 
+        android:textSize="20dp"/>
+
+    <EditText
+        android:id="@+id/edit_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_price"
+        android:layout_below="@+id/txt_price"
+        
+        android:ems="10" />
 
     <TextView
         android:id="@+id/txt_quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/edit_cost"
-        android:layout_below="@+id/edit_cost"
-        android:layout_marginTop="14dp"
-        android:text="quantity:"
+        android:layout_alignLeft="@+id/edit_price"
+        android:layout_below="@+id/edit_price"
+        android:layout_marginTop="10dp"
+        android:text="Quantity:"
         android:textSize="20dp" />
-
-    <EditText
-        android:id="@+id/edit_quantity"
+    
+    <TextView
+        android:id="@+id/txt_tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txt_quantity"
-        android:layout_below="@+id/txt_quantity"
-        android:layout_marginTop="22dp"
+        android:layout_alignLeft="@+id/edit_quantity"
+        android:layout_below="@+id/edit_quantity"
+        android:layout_marginTop="10dp"
+        android:text="Tag" 
+        android:textSize="20dp"/>
+
+    <EditText
+        android:id="@+id/edit_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_tag"
+        android:layout_below="@+id/txt_tag"
+       
         android:ems="10" />
 
     <Button
@@ -102,5 +121,24 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="22dp"
         android:text="find item by id" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/edit_quantity"
+        android:text="Add" />
+
+    <EditText
+        android:id="@+id/edit_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_quantity"
+        android:layout_below="@+id/txt_quantity"
+        
+        android:ems="10" />
+
+    
 
 </RelativeLayout>
