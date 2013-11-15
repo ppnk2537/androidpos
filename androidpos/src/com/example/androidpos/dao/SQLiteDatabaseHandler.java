@@ -78,7 +78,42 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 
 	@Override
 	public Item [] selectStock(String _id) {
-		return null;
+
+		try {
+			String [][] data = null;
+
+			SQLiteDatabase db = this.getReadableDatabase();
+
+			String sql = "SELECT * FROM " + STOCK_TABLE_NAME + " WHERE _id = " + _id;
+			Cursor cursor = db.rawQuery(sql, null);
+
+			int row = 5;
+
+			if (cursor != null)
+				if (cursor.moveToFirst()) {
+					data = new String[cursor.getCount()][row];
+					int i = 0;
+					do {
+						for (int j = 0; j < row; j++)
+							data[i][j] = cursor.getString(j);
+						i++;
+					} while (cursor.moveToNext());
+				}
+
+			/** Close database and cursor. */
+			cursor.close();
+			db.close();
+			
+			Item [] items = new Item[data.length];
+
+			for ( int i = 0 ; i < data.length ; i++ ) {
+				items[i] = new Item(data[i]);
+			}
+			
+			return items;
+		} catch (Exception e) {
+			return null;
+		}
 	}
 	
 	@Override
