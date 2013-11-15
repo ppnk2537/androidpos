@@ -31,9 +31,9 @@ public class ProductCatalogActivity extends Activity{
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_product_catalog);
-
 		DatabaseHandler dbh = new SQLiteDatabaseHandler(this);
 		ProductCatalog.initInstance( dbh );
 		Stock.initInstance(dbh);
