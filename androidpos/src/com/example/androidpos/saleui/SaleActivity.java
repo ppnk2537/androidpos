@@ -80,6 +80,8 @@ public class SaleActivity extends Activity {
 		
 		updateListView();
 	}
+	
+	public void setPaymentDisable() { this.paymentButton.setEnabled(false); }
 
 }
 

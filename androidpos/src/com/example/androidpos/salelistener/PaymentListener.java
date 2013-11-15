@@ -38,7 +38,8 @@ public class PaymentListener implements OnClickListener {
 				double cash = Double.valueOf(input_cash.getText().toString());
 				if ( cash >= total ) {
 					Toast.makeText(sa, "Your Change is: " + (cash - total), Toast.LENGTH_LONG).show();
-					sh.updateStock();
+					if ( sh.updateStock() )
+						sa.setPaymentDisable();
 				}
 				else
 					Toast.makeText(sa, "Not Enough Money", Toast.LENGTH_LONG).show();

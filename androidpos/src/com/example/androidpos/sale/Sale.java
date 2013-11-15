@@ -22,10 +22,6 @@ public class Sale {
 		return post > pre;
 	}
 
-	public void test2() {
-		
-	}
-	
 	/**
 	 * Get all item from sale
 	 * 
