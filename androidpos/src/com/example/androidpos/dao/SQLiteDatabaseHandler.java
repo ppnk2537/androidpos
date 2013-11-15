@@ -2,7 +2,6 @@ package com.example.androidpos.dao;
 
 import com.example.androidpos.inventory.Item;
 import com.example.androidpos.inventory.Product;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -291,5 +290,6 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
 	}
+
 	
 }

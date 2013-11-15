@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.example.androidpos.dao.DatabaseHandler;
+import com.example.androidpos.sale.SaleLineItem;
 
 public class Stock {
 
@@ -72,6 +73,10 @@ public class Stock {
 				list.add(map);
 			}
 		return list;
+	}
+
+	public Item [] getItem(SaleLineItem lineItem) {
+		return dbh.selectStock(lineItem.getId());
 	}
 	
 }

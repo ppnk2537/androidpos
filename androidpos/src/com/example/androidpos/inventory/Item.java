@@ -35,4 +35,8 @@ public class Item {
 		return this.lastEdit;
 	}
 
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
 }

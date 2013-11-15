@@ -1,6 +1,10 @@
 package com.example.androidpos.authenticateui;
 
 import com.example.androidpos.R;
+import com.example.androidpos.dao.DatabaseHandler;
+import com.example.androidpos.dao.SQLiteDatabaseHandler;
+import com.example.androidpos.inventory.ProductCatalog;
+import com.example.androidpos.inventory.Stock;
 import com.example.androidpos.inventoryui.InventoryActivity;
 import com.example.androidpos.saleui.SaleActivity;
 
@@ -21,6 +25,10 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		DatabaseHandler dbh = new SQLiteDatabaseHandler(this);
+		ProductCatalog.initInstance(dbh);
+		Stock.initInstance(dbh);
 		
 		initComponent();
 		

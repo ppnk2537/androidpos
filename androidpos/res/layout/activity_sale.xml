@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TableLayout
+        android:id="@+id/inventory_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+
+        <TableRow
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_column="0"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="ID"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="Name"
+                android:textAppearance="?android:attr/textAppearanceLarge" >
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_column="2"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="Quan."
+                android:textAppearance="?android:attr/textAppearanceLarge" >
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_column="3"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="Price"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_column="3"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="Total"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </TableRow>
+    </TableLayout>
+
+    <ListView
+        android:id="@+id/itemlist"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/inventory_item" >
+    </ListView>
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/paymentButton"
+        android:layout_alignBottom="@+id/paymentButton"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:text="Clear" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="45dp"
+        android:text="add" />
+
+    <EditText
+        android:id="@+id/input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/clearButton"
+        android:layout_alignRight="@+id/clearButton"
+        android:layout_marginBottom="26dp"
+        android:ems="10" />
+
+    <Button
+        android:id="@+id/paymentButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/addButton"
+        android:layout_alignBottom="@+id/addButton"
+        android:layout_centerHorizontal="true"
+        android:text="payment" />
+
+    <TextView
+        android:id="@+id/txt_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/input"
+        android:layout_alignRight="@+id/addButton"
+        android:text="id:"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/paymentButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:text="total" />
+
+</RelativeLayout>

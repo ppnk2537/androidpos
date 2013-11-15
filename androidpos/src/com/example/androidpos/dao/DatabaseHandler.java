@@ -9,6 +9,8 @@ public interface DatabaseHandler {
 	
 	public static final String STOCK_TABLE_NAME = "STOCK_TABLE";
 	
+	public static final String LEDGER_TABLE_NAME = "LEDGER_TABLE";
+	
 	/**
 	 * Select Product from database
 	 * @param _id code identify where data is.
