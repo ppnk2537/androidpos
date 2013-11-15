@@ -4,11 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.example.androidpos.R;
-import com.example.androidpos.dao.DatabaseHandler;
-import com.example.androidpos.dao.SQLiteDatabaseHandler;
 import com.example.androidpos.inventory.ProductCatalog;
-import com.example.androidpos.inventory.Stock;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,6 +27,7 @@ public class ProductCatalogActivity extends Activity{
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_product_catalog);
 		
