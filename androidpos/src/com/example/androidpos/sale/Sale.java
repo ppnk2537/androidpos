@@ -6,11 +6,14 @@ import java.util.List;
 
 public class Sale {
 	
-	private String saleId;
+	private static long saleId = 100001;
+	private String _id;
 	private List<SaleLineItem> itemList;
+	private String lastEdit;
 
 	public Sale() {
-		this.saleId = "100000";
+		this._id = Long.toString(saleId);
+		saleId += 1;
 		this.itemList = new ArrayList<SaleLineItem>();
 	}
 	
@@ -59,7 +62,9 @@ public class Sale {
 	}
 
 	public String getId() {
-		return this.saleId;
+		return this._id;
 	}
+
+	public String getLastEdit() { return this.lastEdit; }
 
 }

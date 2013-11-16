@@ -13,11 +13,11 @@
         android:text="name"
         android:textSize="20dp"  />
     <TextView
-        android:id="@+id/colProfit"
+        android:id="@+id/colTotal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:text="profit"
+        android:text="total"
         android:textSize="20dp"  />
     <TextView
         android:id="@+id/colDate"

@@ -11,13 +11,13 @@ import android.widget.Toast;
 import com.example.androidpos.sale.SaleHandler;
 import com.example.androidpos.saleui.SaleActivity;
 
-public class PaymentListener implements OnClickListener {
+public class PaymentClickListener implements OnClickListener {
 
 	private SaleActivity sa;
 	private SaleHandler sh;
 	private TextView total;
 
-	public PaymentListener(SaleActivity sa, SaleHandler sh, TextView total) {
+	public PaymentClickListener(SaleActivity sa, SaleHandler sh, TextView total) {
 		this.sa = sa;
 		this.sh = sh;
 		this.total = total;
@@ -38,6 +38,8 @@ public class PaymentListener implements OnClickListener {
 				double cash = Double.valueOf(input_cash.getText().toString());
 				if ( cash >= total ) {
 					Toast.makeText(sa, "Your Change is: " + (cash - total), Toast.LENGTH_LONG).show();
+					if ( sh.updateLedger() )
+						Toast.makeText(sa, "Ledger Save", Toast.LENGTH_LONG).show();
 					if ( sh.updateStock() )
 						sa.setPaymentDisable();
 				}

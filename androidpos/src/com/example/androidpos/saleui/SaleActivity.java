@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.example.androidpos.R;
 import com.example.androidpos.sale.SaleHandler;
 import com.example.androidpos.salelistener.AddClickListener;
-import com.example.androidpos.salelistener.PaymentListener;
+import com.example.androidpos.salelistener.PaymentClickListener;
 
 public class SaleActivity extends Activity {
 
@@ -62,7 +62,7 @@ public class SaleActivity extends Activity {
 		total = (TextView) findViewById(R.id.total);
 		
 		paymentButton = (Button) findViewById(R.id.paymentButton);
-		paymentButton.setOnClickListener( new PaymentListener(this, sh, total));
+		paymentButton.setOnClickListener( new PaymentClickListener(this, sh, total));
 		
 		clearButton = (Button) findViewById(R.id.clearButton);
 		clearButton.setOnClickListener( new View.OnClickListener() {

@@ -1,6 +1,5 @@
 package com.example.androidpos.sale;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,6 +7,8 @@ import com.example.androidpos.inventory.Item;
 import com.example.androidpos.inventory.Product;
 import com.example.androidpos.inventory.ProductCatalog;
 import com.example.androidpos.inventory.Stock;
+import com.example.androidpos.report.Ledger;
+import com.example.androidpos.report.SaleLedger;
 
 public class SaleHandler {
 
@@ -32,6 +33,13 @@ public class SaleHandler {
 	public Sale getSale() {
 		return this.sale;
 	}
+	
+	public boolean updateLedger() {
+		ledger = SaleLedger.getInstance();
+		Ledger l = new Ledger(sale);
+		
+		return	ledger.addLedger(l);
+	}
 
 	public boolean updateStock() {
 		Stock stock = Stock.getInstance();
@@ -45,7 +53,7 @@ public class SaleHandler {
 			int sli_quantity = Integer.valueOf(sli.getQuanity());
 
 			for (Item item : items) {
-				if (item.getQuantity() < 0)
+				if (item.getQuantity() == 0)
 					continue;
 				if (item.getQuantity() >= sli_quantity) {
 					item.setQuantity(item.getQuantity() - sli_quantity);
@@ -57,7 +65,7 @@ public class SaleHandler {
 			}
 
 			if (sli_quantity != 0)
-				items[items.length - 1].setQuantity(-1 * sli_quantity);
+				items[items.length - 1].setQuantity(items[items.length - 1].getQuantity() - sli_quantity);
 
 			for (Item item : items) {
 				stock.editItem(item, item.getLastEdit());

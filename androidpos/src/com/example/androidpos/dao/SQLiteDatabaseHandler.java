@@ -2,6 +2,8 @@ package com.example.androidpos.dao;
 
 import com.example.androidpos.inventory.Item;
 import com.example.androidpos.inventory.Product;
+import com.example.androidpos.report.Ledger;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -26,9 +28,9 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 
 			SQLiteDatabase db = this.getReadableDatabase();
 
-			Cursor cursor = db.query(CATALOG_TABLE_NAME,
-					new String[] { "*" }, "_id = ?",
-					new String[] { String.valueOf(_id) }, null, null, null);
+			Cursor cursor = db.query(CATALOG_TABLE_NAME, new String[] { "*" },
+					"_id = ?", new String[] { String.valueOf(_id) }, null,
+					null, null);
 
 			if (cursor != null)
 				if (cursor.moveToFirst()) {
@@ -40,7 +42,7 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 			/** Close database and cursor. */
 			cursor.close();
 			db.close();
-			
+
 			return new Product(data);
 		} catch (Exception e) {
 			return null;
@@ -54,9 +56,9 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 
 			SQLiteDatabase db = this.getReadableDatabase();
 
-			Cursor cursor = db.query(STOCK_TABLE_NAME,
-					new String[] { "*" }, "last_edit = ?",
-					new String[] { String.valueOf(lastEdit) }, null, null, null);
+			Cursor cursor = db.query(STOCK_TABLE_NAME, new String[] { "*" },
+					"last_edit = ?", new String[] { String.valueOf(lastEdit) },
+					null, null, null);
 
 			if (cursor != null)
 				if (cursor.moveToFirst()) {
@@ -69,7 +71,7 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 			/** Close database and cursor. */
 			cursor.close();
 			db.close();
-			
+
 			return new Item(data);
 		} catch (Exception e) {
 			return null;
@@ -77,14 +79,15 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 	}
 
 	@Override
-	public Item [] selectStock(String _id) {
+	public Item[] selectStock(String _id) {
 
 		try {
-			String [][] data = null;
+			String[][] data = null;
 
 			SQLiteDatabase db = this.getReadableDatabase();
 
-			String sql = "SELECT * FROM " + STOCK_TABLE_NAME + " WHERE _id = " + _id;
+			String sql = "SELECT * FROM " + STOCK_TABLE_NAME + " WHERE _id = "
+					+ _id;
 			Cursor cursor = db.rawQuery(sql, null);
 
 			int row = 5;
@@ -103,24 +106,24 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 			/** Close database and cursor. */
 			cursor.close();
 			db.close();
-			
-			Item [] items = new Item[data.length];
 
-			for ( int i = 0 ; i < data.length ; i++ ) {
+			Item[] items = new Item[data.length];
+
+			for (int i = 0; i < data.length; i++) {
 				items[i] = new Item(data[i]);
 			}
-			
+
 			return items;
 		} catch (Exception e) {
 			return null;
 		}
 	}
-	
+
 	@Override
-	public String [][] selectAll(String tableName) {
+	public String[][] selectAll(String tableName) {
 
 		try {
-			String [][] data = null;
+			String[][] data = null;
 
 			SQLiteDatabase db = this.getReadableDatabase();
 
@@ -128,6 +131,9 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 			Cursor cursor = db.rawQuery(sql, null);
 
 			int row = 5;
+
+			if (tableName.equalsIgnoreCase(LEDGER_TABLE_NAME))
+				row = 3;
 
 			if (cursor != null)
 				if (cursor.moveToFirst()) {
@@ -157,11 +163,11 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 
 			/** Prepare values to insert. */
 			ContentValues values = new ContentValues();
-			values.put("_id", product.getId() );
-			values.put("name", product.getName() );
-			values.put("price", product.getPrice() );
-			values.put("tag", product.getTag() );
-			values.put("last_edit", product.getLastEdit() );
+			values.put("_id", product.getId());
+			values.put("name", product.getName());
+			values.put("price", product.getPrice());
+			values.put("tag", product.getTag());
+			values.put("last_edit", product.getLastEdit());
 
 			/** Insert values to database. */
 			long rows = db.insert(CATALOG_TABLE_NAME, null, values);
@@ -200,19 +206,18 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 	}
 
 	@Override
-	public long updateProduct(Product product) {
+	public long insertLedger(Ledger l) {
 		try {
 			/** Get database. */
 			SQLiteDatabase db = this.getWritableDatabase();
 
 			/** Prepare values to insert. */
 			ContentValues values = new ContentValues();
-			values.put("price", product.getPrice() );
-			values.put("tag", product.getTag() );
-			values.put("last_edit", product.getLastEdit());
+			values.put("_id", l.getId());
+			values.put("ledger", l.getLedger());
+			values.put("last_edit", l.getLastEdit());
 
-			long rows = db.update(CATALOG_TABLE_NAME, values, "_id = ?",
-					new String[] { String.valueOf( product.getId() ) });
+			long rows = db.insert(LEDGER_TABLE_NAME, null, values);
 
 			/** Close database. */
 			db.close();
@@ -223,18 +228,41 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 	}
 
 	@Override
-	public long updateItem(Item item , String lastEdit) {
+	public long updateProduct(Product product) {
 		try {
 			/** Get database. */
 			SQLiteDatabase db = this.getWritableDatabase();
 
 			/** Prepare values to insert. */
 			ContentValues values = new ContentValues();
-			values.put("_id", item.getId() );
-			values.put("name", item.getName() );
-			values.put("cost", item.getCost() );
-			values.put("quantity", item.getQuantity() );
-			values.put("last_edit", item.getLastEdit() );
+			values.put("price", product.getPrice());
+			values.put("tag", product.getTag());
+			values.put("last_edit", product.getLastEdit());
+
+			long rows = db.update(CATALOG_TABLE_NAME, values, "_id = ?",
+					new String[] { String.valueOf(product.getId()) });
+
+			/** Close database. */
+			db.close();
+			return rows;
+		} catch (Exception e) {
+			return -1;
+		}
+	}
+
+	@Override
+	public long updateItem(Item item, String lastEdit) {
+		try {
+			/** Get database. */
+			SQLiteDatabase db = this.getWritableDatabase();
+
+			/** Prepare values to insert. */
+			ContentValues values = new ContentValues();
+			values.put("_id", item.getId());
+			values.put("name", item.getName());
+			values.put("cost", item.getCost());
+			values.put("quantity", item.getQuantity());
+			values.put("last_edit", item.getLastEdit());
 
 			long rows = db.update(STOCK_TABLE_NAME, values, "last_edit = ?",
 					new String[] { String.valueOf(lastEdit) });
@@ -306,19 +334,18 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL("CREATE TABLE " + CATALOG_TABLE_NAME
-				+ "( _id INTEGER PRIMARY KEY," 
-				+ " name TEXT(100)," 
-				+ " price DOUBLE,"
-				+ " tag TEXT(100)," 
+				+ "( _id INTEGER PRIMARY KEY," + " name TEXT(100),"
+				+ " price DOUBLE," + " tag TEXT(100),"
 				+ " last_edit TEXT(100));");
 		Log.d("CREATE CATALOG TABLE", "Success");
-		db.execSQL("CREATE TABLE " + STOCK_TABLE_NAME
-				+ " ( _id INTEGER,"
-				+ " name TEXT(100),"
-				+ " cost DOUBLE," 
-				+ " quantity INTEGER," 
+		db.execSQL("CREATE TABLE " + STOCK_TABLE_NAME + " ( _id INTEGER,"
+				+ " name TEXT(100)," + " cost DOUBLE," + " quantity INTEGER,"
 				+ " last_edit TEXT(100));");
 		Log.d("CREATE STOCK TABLE", "Success");
+		db.execSQL("CREATE TABLE " + LEDGER_TABLE_NAME
+				+ " ( _id INTEGER PRIMARY KEY," + " ledger TEXT(100),"
+				+ " last_edit TEXT(100));");
+		Log.d("CREATE LEDGER TABLE", "Success");
 	}
 
 	@Override
@@ -326,5 +353,4 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 
 	}
 
-	
 }

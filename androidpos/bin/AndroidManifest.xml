@@ -38,6 +38,8 @@
         </activity>
         <activity android:name="com.example.androidpos.saleui.SaleActivity" >
         </activity>
+        <activity android:name="com.example.androidpos.reportui.SaleLedgerActivity" >
+        </activity>
         <activity
             android:name="com.example.androidpos.StockActivity"
             android:label="@string/title_activity_stock" >

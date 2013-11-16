@@ -2,6 +2,7 @@ package com.example.androidpos.dao;
 
 import com.example.androidpos.inventory.Item;
 import com.example.androidpos.inventory.Product;
+import com.example.androidpos.report.Ledger;
 
 public interface DatabaseHandler {
 
@@ -90,5 +91,8 @@ public interface DatabaseHandler {
 	 * @return number of row that has been delete, otherwise -1.
 	 */
 	public long deleteStock( String name );
+
+
+	public long insertLedger(Ledger l);
 		
 }

@@ -6,6 +6,8 @@ import com.example.androidpos.dao.SQLiteDatabaseHandler;
 import com.example.androidpos.inventory.ProductCatalog;
 import com.example.androidpos.inventory.Stock;
 import com.example.androidpos.inventoryui.InventoryActivity;
+import com.example.androidpos.report.SaleLedger;
+import com.example.androidpos.reportui.SaleLedgerActivity;
 import com.example.androidpos.saleui.SaleActivity;
 
 import android.os.Bundle;
@@ -29,6 +31,7 @@ public class MainActivity extends Activity {
 		DatabaseHandler dbh = new SQLiteDatabaseHandler(this);
 		ProductCatalog.initInstance(dbh);
 		Stock.initInstance(dbh);
+		SaleLedger.initInstance(dbh);
 		
 		initComponent();
 		
@@ -45,8 +48,17 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent inventory = new Intent(MainActivity.this,SaleActivity.class);
-				startActivity(inventory);				
+				Intent sale = new Intent(MainActivity.this,SaleActivity.class);
+				startActivity(sale);				
+			}
+		});
+		
+		reportBtn.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent report = new Intent(MainActivity.this,SaleLedgerActivity.class);
+				startActivity(report);				
 			}
 		});
 
