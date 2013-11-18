@@ -1,5 +1,6 @@
 package com.example.androidpos.inventorylistener;
 
+import com.example.androidpos.date.DateStrategy;
 import com.example.androidpos.inventory.Product;
 import com.example.androidpos.inventory.ProductCatalog;
 import com.example.androidpos.inventoryui.EditProductActivity;
@@ -42,7 +43,7 @@ public class EditProductClickListener implements OnClickListener {
 		data[1] = name;
 		data[2] = price;
 		data[3] = tag;
-		data[4] = ""+System.currentTimeMillis();
+		data[4] = DateStrategy.getInstance().getDate();
 				
 		Product product = new Product(data);
 		

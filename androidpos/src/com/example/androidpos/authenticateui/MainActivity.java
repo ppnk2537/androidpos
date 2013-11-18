@@ -27,11 +27,12 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+				
 		DatabaseHandler dbh = new SQLiteDatabaseHandler(this);
 		ProductCatalog.initInstance(dbh);
 		Stock.initInstance(dbh);
 		SaleLedger.initInstance(dbh);
+		
 		
 		initComponent();
 		
