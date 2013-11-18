@@ -2,11 +2,6 @@ package com.example.androidpos.inventorylistener;
 
 import com.example.androidpos.inventory.Product;
 import com.example.androidpos.inventory.ProductCatalog;
-import com.example.androidpos.inventoryui.AddItemActivity;
-import com.example.androidpos.inventoryui.AddProductActivity;
-import com.example.androidpos.inventoryui.ProductCatalogActivity;
-
-import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -17,10 +12,8 @@ public class FindItemClickListener implements OnClickListener {
 	private EditText edit_name;
 	private EditText edit_price;
 	private EditText edit_tag;
-	private AddItemActivity aia;
 	
-	public FindItemClickListener(AddItemActivity aia, EditText edit_id, EditText edit_name,EditText edit_price,EditText edit_tag) {
-		this.aia = aia;
+	public FindItemClickListener(EditText edit_id, EditText edit_name,EditText edit_price,EditText edit_tag) {
 		this.edit_id = edit_id;
 		this.edit_name = edit_name;
 		this.edit_price = edit_price;
@@ -43,10 +36,6 @@ public class FindItemClickListener implements OnClickListener {
 			edit_price.setEnabled(false);
 			edit_tag.setEnabled(false);
 		}
-//		else {
-//			Intent addProduct = new Intent(aia,AddProductActivity.class);
-//			aia.startActivity(addProduct);
-//		}
 		
 	}
 

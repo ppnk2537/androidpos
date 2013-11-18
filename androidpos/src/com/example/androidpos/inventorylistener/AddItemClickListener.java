@@ -82,9 +82,8 @@ public class AddItemClickListener implements OnClickListener {
 			
 			Product product = new Product(pdata);
 			
-			if ( pc.addProduct(product) && stock.addItem(item) ) {
-				Intent inventory = new Intent(aia,InventoryActivity.class);
-				aia.startActivity(inventory);
+			if ( pc.addProduct(product) && stock.addItem(item) ) { 
+				Toast.makeText(aia, "Add Success", Toast.LENGTH_LONG).show();
 			}
 			else 
 				Toast.makeText(aia, "Add Failed", Toast.LENGTH_LONG).show();

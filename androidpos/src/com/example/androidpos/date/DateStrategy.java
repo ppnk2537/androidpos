@@ -25,7 +25,7 @@ public class DateStrategy {
 	
 	public String getDate() {
 		Date date = calendar.getTime();
-		SimpleDateFormat sdf = new SimpleDateFormat("kk:mm dd.MM.yy");
+		SimpleDateFormat sdf = new SimpleDateFormat("kk:mm:ss dd.MM.yy");
 		return String.format("" + sdf.format(date));
 	}
 }

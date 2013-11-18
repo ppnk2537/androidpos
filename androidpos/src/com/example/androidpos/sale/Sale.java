@@ -6,8 +6,6 @@ import java.util.List;
 
 import com.example.androidpos.date.DateStrategy;
 
-import android.webkit.DateSorter;
-
 public class Sale {
 	
 	private static long saleId = 100001;

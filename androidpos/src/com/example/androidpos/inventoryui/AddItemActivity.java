@@ -45,7 +45,7 @@ public class AddItemActivity extends Activity {
 				edit_name, edit_cost, edit_quantity,edit_price,edit_tag));
 		
 		findButton = (Button) findViewById(R.id.findButton);
-		findButton.setOnClickListener(new FindItemClickListener(this, edit_id,
+		findButton.setOnClickListener(new FindItemClickListener(edit_id,
 				edit_name,edit_price,edit_tag));
 	}
 

@@ -4,12 +4,10 @@ import com.example.androidpos.date.DateStrategy;
 import com.example.androidpos.inventory.Item;
 import com.example.androidpos.inventory.Stock;
 import com.example.androidpos.inventoryui.EditItemActivity;
-import com.example.androidpos.inventoryui.InventoryActivity;
-
-import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class EditItemClickListener implements OnClickListener {
 
@@ -51,8 +49,7 @@ public class EditItemClickListener implements OnClickListener {
 		Item item = new Item(data);
 		
 		if ( stock.editItem(item,lastEdit) ){
-			Intent inventory = new Intent(eia,InventoryActivity.class);
-			eia.startActivity(inventory);	
+			Toast.makeText(eia, "Edit Success", Toast.LENGTH_LONG).show();
 		}
 	}
 

@@ -2,11 +2,9 @@ package com.example.androidpos.inventorylistener;
 
 import com.example.androidpos.inventory.ProductCatalog;
 import com.example.androidpos.inventoryui.EditProductActivity;
-import com.example.androidpos.inventoryui.InventoryActivity;
-
-import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Toast;
 
 public class RemoveProductClickListener implements OnClickListener {
 
@@ -23,8 +21,7 @@ public class RemoveProductClickListener implements OnClickListener {
 		ProductCatalog pc  = ProductCatalog.getInstance();
 		
 		if ( pc.removeProduct(_id) ) {
-			Intent inventory = new Intent(epa,InventoryActivity.class);
-			epa.startActivity(inventory);	
+			Toast.makeText(epa, "Remove Success", Toast.LENGTH_LONG).show();	
 		}
 			
 	}

@@ -40,6 +40,8 @@ public class AddClickListener implements OnClickListener {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				String quantity = input_quantity.getText().toString();
+				if ( quantity == null )
+					quantity = "1";
 				if ( sh.addSaleLineItem(_id, quantity) )
 					Toast.makeText(sa, "Add Success", Toast.LENGTH_LONG).show();
 				sa.updateListView();

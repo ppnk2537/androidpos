@@ -37,8 +37,8 @@ public class StockActivity extends Activity{
 			
 			@Override
 			public void onClick(View arg0) {
-				Intent inventory = new Intent(StockActivity.this,AddItemActivity.class);
-				startActivity(inventory);
+				Intent addItem = new Intent(StockActivity.this,AddItemActivity.class);
+				startActivity(addItem);
 			}
 		});
 		
@@ -59,6 +59,13 @@ public class StockActivity extends Activity{
 		});
 		
 		updateListView();
+	}
+	
+
+	@Override
+	protected void onResume() {
+		updateListView();
+		super.onResume();
 	}
 	
 	private void updateListView() {

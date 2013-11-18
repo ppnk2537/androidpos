@@ -70,6 +70,12 @@ public class ProductCatalogActivity extends Activity{
 	}
 
 	@Override
+	protected void onResume() {
+		updateListView();
+		super.onResume();
+	}
+	
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		return true;
 	}
