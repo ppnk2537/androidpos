@@ -28,7 +28,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="left"
-                android:text="Total"
+                android:text="Profit"
                 android:textAppearance="?android:attr/textAppearanceLarge" >
             </TextView>
 

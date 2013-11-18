@@ -11,27 +11,30 @@ import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-public class SaleLedgerActivity extends Activity{
-	
+public class SaleLedgerActivity extends Activity {
+
 	private SaleLedger sl;
-	private List<HashMap<String,String>> listmap;
+	private List<HashMap<String, String>> listmap;
 	private ListView listview;
 	private SimpleAdapter simAdapter;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sale_ledger);
 		listview = (ListView) findViewById(R.id.itemlist);
-		
+
 		sl = SaleLedger.getInstance();
-		
+
 		updateListView();
 	}
 
 	private void updateListView() {
 		listmap = sl.getAllLedger();
-		simAdapter = new SimpleAdapter(this, listmap, R.layout.activity_column_sale_ledger, new String [] { "id", "total","lastedit" },new int [] {R.id.colId, R.id.colTotal, R.id.colLastEdit});
+		simAdapter = new SimpleAdapter(this, listmap,
+				R.layout.activity_column_sale_ledger, new String[] { "id",
+						"profit", "lastedit" }, new int[] { R.id.colId,
+						R.id.colProfit, R.id.colDate });
 		listview.setAdapter(simAdapter);
 	}
 

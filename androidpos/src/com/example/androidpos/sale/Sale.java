@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.example.androidpos.date.DateStrategy;
+
+import android.webkit.DateSorter;
+
 public class Sale {
 	
 	private static long saleId = 100001;
@@ -15,6 +19,7 @@ public class Sale {
 		this._id = Long.toString(saleId);
 		saleId += 1;
 		this.itemList = new ArrayList<SaleLineItem>();
+		this.lastEdit = DateStrategy.getInstance().getDate();
 	}
 	
 	public boolean addSaleLineItem(SaleLineItem sli) {

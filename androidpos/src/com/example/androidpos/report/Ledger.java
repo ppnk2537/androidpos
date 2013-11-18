@@ -9,15 +9,19 @@ public class Ledger {
 
 	private String _id;
 	private String ledger;
+	private String ledger_cost;
 	private Sale sale;
 	private String lastEdit;
-
-	public Ledger(Sale sale) {
+	private List<Double> cost;
+	
+	public Ledger(Sale sale, List<Double> cost) {
 		this.sale = sale;
 		this._id = sale.getId();
 		this.lastEdit = sale.getLastEdit();
+		this.cost = cost;
 		
 		initLedger();
+		initCost();
 	}
 
 	private void initLedger() {
@@ -31,9 +35,18 @@ public class Ledger {
 		}
 	}
 	
+	private void initCost(){
+		ledger_cost = "";
+		for ( Double c : cost ) {
+			ledger_cost += String.format("%.2f&", c);
+		}
+	}
+	
 	public String getId() {	return this._id; }
 	
 	public String getLedger() { return this.ledger; }
+	
+	public String getCost() { return this.ledger_cost; }
 	
 	public String getLastEdit() { return this.lastEdit; }
 

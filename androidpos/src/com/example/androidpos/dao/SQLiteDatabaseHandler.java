@@ -133,7 +133,7 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 			int row = 5;
 
 			if (tableName.equalsIgnoreCase(LEDGER_TABLE_NAME))
-				row = 3;
+				row = 4;
 
 			if (cursor != null)
 				if (cursor.moveToFirst()) {
@@ -215,6 +215,7 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 			ContentValues values = new ContentValues();
 			values.put("_id", l.getId());
 			values.put("ledger", l.getLedger());
+			values.put("cost", l.getCost());
 			values.put("last_edit", l.getLastEdit());
 
 			long rows = db.insert(LEDGER_TABLE_NAME, null, values);
@@ -344,7 +345,7 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 		Log.d("CREATE STOCK TABLE", "Success");
 		db.execSQL("CREATE TABLE " + LEDGER_TABLE_NAME
 				+ " ( _id INTEGER PRIMARY KEY," + " ledger TEXT(100),"
-				+ " last_edit TEXT(100));");
+				+ " cost TEXT(100)," + " last_edit TEXT(100));");
 		Log.d("CREATE LEDGER TABLE", "Success");
 	}
 

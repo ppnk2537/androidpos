@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import android.util.Log;
+
 import com.example.androidpos.dao.DatabaseHandler;
 
 public class SaleLedger {
@@ -54,13 +56,20 @@ public class SaleLedger {
 				HashMap<String, String> map = new HashMap<String, String>();
 				map.put("id", data[i][0]);
 				String [] s = data[i][1].split("&");
-				double total = 0;
+				double total_price = 0;
 				for ( String item : s ) {
 					String [] d = item.split(" ");
-					total += Double.valueOf(d[4]);
+					total_price += Double.valueOf(d[4]);
 				}
-				map.put("total", Double.toString(total));
-				map.put("lastedit", data[i][2]);
+				s = data[i][2].split("&");
+				double total_cost = 0;
+				for ( String cost : s ) {
+					total_cost += Double.valueOf(cost);
+				}
+				double profit = total_price - total_cost;
+				map.put("profit", Double.toString(profit));
+				Log.d("date", data[i][3]);
+				map.put("lastedit", data[i][3]);
 				list.add(map);
 			}
 		return list;
