@@ -69,5 +69,16 @@ public class Sale {
 	}
 
 	public String getLastEdit() { return this.lastEdit; }
+	
+	public SaleLineItem getSaleLineItem(String _id,String quantity) {
+		for ( SaleLineItem sli : itemList )
+			if ( sli.getId().equals(_id) && sli.getQuanity().equals(quantity) )
+				return sli;
+		return null;
+	}
+
+	public void removeSaleLineItem(SaleLineItem sli) {
+		itemList.remove( itemList.indexOf(sli) );
+	}
 
 }

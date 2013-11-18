@@ -4,18 +4,27 @@ import java.util.HashMap;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 import com.example.androidpos.R;
 import com.example.androidpos.inventorylistener.ScanProductClickListener;
+import com.example.androidpos.inventoryui.EditProductActivity;
+import com.example.androidpos.inventoryui.ProductCatalogActivity;
 import com.example.androidpos.sale.SaleHandler;
+import com.example.androidpos.sale.SaleLineItem;
 import com.example.androidpos.salelistener.AddClickListener;
 import com.example.androidpos.salelistener.PaymentClickListener;
 
@@ -39,6 +48,65 @@ public class SaleActivity extends Activity {
 		setContentView(R.layout.activity_sale);
 
 		list_item = (ListView) findViewById(R.id.itemlist);
+		
+		list_item.setOnItemClickListener( new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				final int position = arg2;
+				final String _id = listmap.get(position).get("id");
+				final String quantity = listmap.get(position).get("quantity");
+				
+				final AlertDialog.Builder adb = new AlertDialog.Builder(SaleActivity.this);
+				adb.setTitle("Change price : ");
+				adb.setMessage("Enter new price");
+				final EditText input_price = new EditText(SaleActivity.this);
+				adb.setView(input_price);
+				adb.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						String price = input_price.getText().toString();
+						sh.getSale().getSaleLineItem(_id, quantity).setPrice(price);
+						updateListView();
+					}
+				});
+				adb.setNegativeButton("Cancel", null);
+				adb.show();
+			}
+			
+		});
+		
+		list_item.setOnItemLongClickListener( new OnItemLongClickListener() {
+
+			@Override
+			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				final int position = arg2;
+				final String _id = listmap.get(position).get("id");
+				final String quantity = listmap.get(position).get("quantity");
+				
+				final AlertDialog.Builder adb = new AlertDialog.Builder(SaleActivity.this);
+				adb.setTitle("Delete this item : ");
+				adb.setMessage("Confirm to delete");
+				final EditText input_price = new EditText(SaleActivity.this);
+				adb.setView(input_price);
+				adb.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						SaleLineItem sli = sh.getSale().getSaleLineItem(_id, quantity);
+						sh.getSale().removeSaleLineItem(sli);
+						updateListView();
+					}
+				});
+				adb.setNegativeButton("Cancel", null);
+				adb.show();
+				return false;
+			}
+			
+		});
 
 		initComponent();
 
@@ -69,8 +137,8 @@ public class SaleActivity extends Activity {
 				total));
 
 		scanButton = (Button) findViewById(R.id.scanButton);
-		scanButton.setOnClickListener( new ScanProductClickListener(this));
-		
+		scanButton.setOnClickListener(new ScanProductClickListener(this));
+
 		clearButton = (Button) findViewById(R.id.clearButton);
 		clearButton.setOnClickListener(new View.OnClickListener() {
 
@@ -88,14 +156,13 @@ public class SaleActivity extends Activity {
 
 		updateListView();
 	}
-	
+
 	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-		if (requestCode == 0)
-		{
-			if (resultCode == RESULT_OK) 
-			{
-				String contents = intent.getStringExtra("SCAN_RESULT");            
+	protected void onActivityResult(int requestCode, int resultCode,
+			Intent intent) {
+		if (requestCode == 0) {
+			if (resultCode == RESULT_OK) {
+				String contents = intent.getStringExtra("SCAN_RESULT");
 				input.setText(contents);
 			}
 		}
