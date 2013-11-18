@@ -62,6 +62,7 @@ public class SaleActivity extends Activity {
 				adb.setTitle("Change price : ");
 				adb.setMessage("Enter new price");
 				final EditText input_price = new EditText(SaleActivity.this);
+				input_price.setRawInputType(Configuration.KEYBOARD_12KEY);
 				adb.setView(input_price);
 				adb.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
 					
@@ -90,8 +91,6 @@ public class SaleActivity extends Activity {
 				final AlertDialog.Builder adb = new AlertDialog.Builder(SaleActivity.this);
 				adb.setTitle("Delete this item : ");
 				adb.setMessage("Confirm to delete");
-				final EditText input_price = new EditText(SaleActivity.this);
-				adb.setView(input_price);
 				adb.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
 					
 					@Override
@@ -123,6 +122,7 @@ public class SaleActivity extends Activity {
 						R.id.ColName, R.id.ColQuantity, R.id.ColPrice,
 						R.id.ColTotal });
 		list_item.setAdapter(simAdapter);
+		total.setText(Double.toString(sh.getSale().getTotal()));
 	}
 
 	private void initComponent() {
