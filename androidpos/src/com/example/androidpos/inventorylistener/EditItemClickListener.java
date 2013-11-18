@@ -45,7 +45,7 @@ public class EditItemClickListener implements OnClickListener {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				// TODO Auto-generated method stub
+				
 				Stock stock = Stock.getInstance();
 
 				this.cost = edit_cost.getText().toString();
