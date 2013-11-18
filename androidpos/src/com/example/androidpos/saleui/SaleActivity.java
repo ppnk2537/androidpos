@@ -38,14 +38,14 @@ public class SaleActivity extends Activity {
 		list_item = (ListView) findViewById(R.id.itemlist);
 
 		initComponent();
-		
+
 		updateListView();
 	}
 
 	public void updateListView() {
 
 		listmap = sh.getSale().getAllItem();
-		
+
 		simAdapter = new SimpleAdapter(this, listmap,
 				R.layout.activity_comlumn_sale, new String[] { "id", "name",
 						"quantity", "price", "total" }, new int[] { R.id.ColID,
@@ -57,16 +57,17 @@ public class SaleActivity extends Activity {
 	private void initComponent() {
 
 		sh = new SaleHandler();
-		
+
 		input = (EditText) findViewById(R.id.input);
 		total = (TextView) findViewById(R.id.total);
-		
+
 		paymentButton = (Button) findViewById(R.id.paymentButton);
-		paymentButton.setOnClickListener( new PaymentClickListener(this, sh, total));
-		
+		paymentButton.setOnClickListener(new PaymentClickListener(this, sh,
+				total));
+
 		clearButton = (Button) findViewById(R.id.clearButton);
-		clearButton.setOnClickListener( new View.OnClickListener() {
-			
+		clearButton.setOnClickListener(new View.OnClickListener() {
+
 			@Override
 			public void onClick(View arg0) {
 				sh.getSale().clear();
@@ -74,14 +75,21 @@ public class SaleActivity extends Activity {
 				updateListView();
 			}
 		});
-		
+
 		addButton = (Button) findViewById(R.id.addButton);
-		addButton.setOnClickListener( new AddClickListener(this, input, sh, total));
-		
+		addButton.setOnClickListener(new AddClickListener(this, input, sh,
+				total));
+
 		updateListView();
 	}
-	
-	public void setPaymentDisable() { this.paymentButton.setEnabled(false); }
 
+	public void setPaymentDisable() {
+		this.paymentButton.setEnabled(false);
+	}
+
+	@Override
+	public void onBackPressed() {
+		updateListView();
+		super.onBackPressed();
+	}
 }
-

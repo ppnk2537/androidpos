@@ -13,6 +13,8 @@ import android.widget.SimpleAdapter;
 
 public class SaleLedgerActivity extends Activity{
 	
+	
+
 	private SaleLedger sl;
 	private List<HashMap<String,String>> listmap;
 	private ListView listview;
@@ -33,6 +35,11 @@ public class SaleLedgerActivity extends Activity{
 		listmap = sl.getAllLedger();
 		simAdapter = new SimpleAdapter(this, listmap, R.layout.activity_column_sale_ledger, new String [] { "id", "total","lastedit" },new int [] {R.id.colId, R.id.colTotal, R.id.colLastEdit});
 		listview.setAdapter(simAdapter);
+	}
+	@Override
+	public void onBackPressed() {
+		updateListView();
+		super.onBackPressed();
 	}
 
 }
