@@ -72,7 +72,7 @@ public class PaymentClickListener implements OnClickListener {
 					total += Double.valueOf(sl.getTotalPrice());
 				}
 				
-				s += "Cash : " + cash + " Tax : " + (total * 0.07) + "\n Total : " + total + " Change : " + (cash - total);
+				s += "Cash : " + cash + " Tax : " + (total * 0.07) + "\nTotal : " + total + " Change : " + (cash - total);
 
 				adb.setMessage(s);
 				adb.setPositiveButton("Yes",
