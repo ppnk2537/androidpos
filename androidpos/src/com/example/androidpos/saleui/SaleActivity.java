@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.example.androidpos.R;
+import com.example.androidpos.inventorylistener.ScanProductClickListener;
 import com.example.androidpos.sale.SaleHandler;
 import com.example.androidpos.salelistener.AddClickListener;
 import com.example.androidpos.salelistener.PaymentClickListener;
@@ -22,6 +24,7 @@ public class SaleActivity extends Activity {
 	private Button paymentButton;
 	private Button clearButton;
 	private Button addButton;
+	private Button scanButton;
 	private EditText input;
 	private TextView total;
 
@@ -65,6 +68,9 @@ public class SaleActivity extends Activity {
 		paymentButton.setOnClickListener(new PaymentClickListener(this, sh,
 				total));
 
+		scanButton = (Button) findViewById(R.id.scanButton);
+		scanButton.setOnClickListener( new ScanProductClickListener(this));
+		
 		clearButton = (Button) findViewById(R.id.clearButton);
 		clearButton.setOnClickListener(new View.OnClickListener() {
 
@@ -81,6 +87,18 @@ public class SaleActivity extends Activity {
 				total));
 
 		updateListView();
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		if (requestCode == 0)
+		{
+			if (resultCode == RESULT_OK) 
+			{
+				String contents = intent.getStringExtra("SCAN_RESULT");            
+				input.setText(contents);
+			}
+		}
 	}
 
 	public void setPaymentDisable() {

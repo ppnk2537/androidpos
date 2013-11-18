@@ -1,19 +1,20 @@
 package com.example.androidpos.inventorylistener;
 
 
-import com.example.androidpos.inventoryui.AddProductActivity;
-
+import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
+import com.example.androidpos.inventoryui.AddProductActivity;
+
 public class ScanProductClickListener implements OnClickListener {
 
-	private AddProductActivity apa;
+	private Activity ac;
 	
-	public ScanProductClickListener(AddProductActivity apa){
-		this.apa = apa;
+	public ScanProductClickListener(Activity ac){
+		this.ac = ac;
 	}
 
 	@Override
@@ -22,9 +23,9 @@ public class ScanProductClickListener implements OnClickListener {
 			
 			Intent intent = new Intent("com.google.zxing.client.android.SCAN");
 			intent.putExtra("SCAN_MODE", "BAR_CODE_MODE");
-			apa.startActivityForResult(intent, 0);
+			ac.startActivityForResult(intent, 0);
 		} catch (Exception e) {
-			Toast.makeText(apa.getBaseContext(),"Please Install Barcode Scanner",Toast.LENGTH_SHORT).show();
+			Toast.makeText(ac.getBaseContext(),"Please Install Barcode Scanner",Toast.LENGTH_SHORT).show();
 		}
 	}
 	

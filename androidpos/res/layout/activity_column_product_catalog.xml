@@ -7,7 +7,7 @@
         android:id="@+id/colId"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.58"
+        android:layout_weight="0.42"
         android:text="id"
         android:textSize="20dp" />
 
@@ -15,7 +15,7 @@
         android:id="@+id/colName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.75"
+        android:layout_weight="0.52"
         android:text="name"
         android:textSize="20dp" />
 
@@ -23,14 +23,14 @@
         android:id="@+id/colPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="0.11"
         android:text="price"
         android:textSize="20dp" />
 
     <TextView
         android:id="@+id/colLastEdit"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:text="Last Edit"
         android:textSize="20dp" />
 

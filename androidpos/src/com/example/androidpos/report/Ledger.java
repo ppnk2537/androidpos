@@ -21,6 +21,7 @@ public class Ledger {
 		this.cost = cost;
 		
 		initLedger();
+		
 		initCost();
 	}
 

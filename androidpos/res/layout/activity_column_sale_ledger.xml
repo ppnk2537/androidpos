@@ -9,16 +9,18 @@
         android:id="@+id/colId"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="1.40"
         android:text="name"
-        android:textSize="20dp"  />
+        android:textSize="20dp" />
+
     <TextView
         android:id="@+id/colProfit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="1.39"
         android:text="profit"
-        android:textSize="20dp"  />
+        android:textSize="20dp" />
+
     <TextView
         android:id="@+id/colDate"
         android:layout_width="0dp"
