@@ -92,15 +92,6 @@
         android:layout_marginBottom="45dp"
         android:text="add" />
 
-    <EditText
-        android:id="@+id/input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/clearButton"
-        android:layout_alignRight="@+id/clearButton"
-        android:layout_marginBottom="26dp"
-        android:ems="10" />
-
     <Button
         android:id="@+id/paymentButton"
         android:layout_width="wrap_content"
@@ -111,15 +102,6 @@
         android:text="payment" />
 
     <TextView
-        android:id="@+id/txt_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/input"
-        android:layout_alignRight="@+id/addButton"
-        android:text="id:"
-        android:textSize="20dp" />
-
-    <TextView
         android:id="@+id/total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -127,5 +109,37 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
         android:text="total" />
+
+    <TextView
+        android:id="@+id/txt_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/input"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="17dp"
+        android:text="id:"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/clearButton"
+        android:layout_marginBottom="26dp"
+        android:layout_toLeftOf="@+id/clearButton"
+        android:layout_toRightOf="@+id/txt_input"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/scanButton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/input"
+        android:layout_alignLeft="@+id/clearButton"
+        android:text="Scan" />
 
 </RelativeLayout>
