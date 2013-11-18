@@ -37,5 +37,11 @@ public class SaleLedgerActivity extends Activity {
 						R.id.colProfit, R.id.colDate });
 		listview.setAdapter(simAdapter);
 	}
+	
+	@Override
+	public void onBackPressed() {
+		updateListView();
+		super.onBackPressed();
+	}
 
 }

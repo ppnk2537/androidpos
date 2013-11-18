@@ -53,4 +53,5 @@ public class AddItemActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		return true;
 	}
+	
 }

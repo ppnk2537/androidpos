@@ -5,6 +5,7 @@ import com.example.androidpos.saleui.SaleActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.res.Configuration;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -32,6 +33,7 @@ public class AddClickListener implements OnClickListener {
 		adb.setTitle("Add item to sale");
 		adb.setMessage("How many?");
 		final EditText input_quantity = new EditText(sa);
+		input_quantity.setRawInputType(Configuration.KEYBOARD_12KEY);
 		adb.setView(input_quantity);
 		adb.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
