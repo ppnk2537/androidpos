@@ -93,6 +93,8 @@
         android:text="add" />
 
     <EditText
+        android:inputType="phone"
+		android:digits="1234567890"
         android:id="@+id/input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
