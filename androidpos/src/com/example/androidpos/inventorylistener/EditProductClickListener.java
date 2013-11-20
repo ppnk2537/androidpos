@@ -60,6 +60,7 @@ public class EditProductClickListener implements OnClickListener {
 				if (pc.editProduct(product))
 					Toast.makeText(epa, "Edit Success", Toast.LENGTH_LONG)
 							.show();
+				epa.onBackPressed();
 			}
 		});
 		adb.setNegativeButton("Cancel", null);

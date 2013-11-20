@@ -3,7 +3,8 @@
     android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="@color/orangebg">
 
     <TableLayout
         android:id="@+id/inventory_item"
@@ -65,14 +66,6 @@
         </TableRow>
     </TableLayout>
 
-    <ListView
-        android:id="@+id/itemlist"
-        android:layout_width="match_parent"
-        android:layout_height="230dp"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/inventory_item" >
-    </ListView>
-
     <Button
         android:id="@+id/clearButton"
         android:layout_width="wrap_content"
@@ -82,15 +75,6 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
         android:text="Clear" />
-
-    <Button
-        android:id="@+id/addButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="45dp"
-        android:text="add" />
 
     <Button
         android:id="@+id/paymentButton"
@@ -109,15 +93,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
         android:text="total" />
-
-    <TextView
-        android:id="@+id/txt_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="17dp"
-        android:text="id:"
-        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/input"
@@ -142,15 +117,38 @@
         android:layout_alignBaseline="@+id/input"
         android:layout_alignBottom="@+id/input"
         android:layout_alignRight="@+id/clearButton"
-        android:text="Scan" />
+        android:text="Scan" 
+        />
 
     <TextView
         android:id="@+id/txt_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/input"
         android:layout_alignBottom="@+id/input"
-        android:layout_toRightOf="@+id/txt_input"
+        android:layout_alignRight="@+id/addButton"
+        android:layout_marginRight="18dp"
         android:text="id"
         android:textSize="20dp" />
+
+    <ListView
+        android:id="@+id/itemlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/scanButton"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/inventory_item" >
+
+    </ListView>
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="44dp"
+        android:layout_marginRight="21dp"
+        android:layout_toLeftOf="@+id/paymentButton"
+        android:text="add"/>
 
 </RelativeLayout>

@@ -63,6 +63,7 @@ public class AddProductClickListener implements OnClickListener {
 					Toast.makeText(apa, "Add Success", Toast.LENGTH_LONG)
 							.show();
 				}
+				apa.onBackPressed();
 
 			}
 		});

@@ -100,6 +100,7 @@ public class AddItemClickListener implements OnClickListener {
 						Toast.makeText(aia, "Add Failed", Toast.LENGTH_LONG)
 								.show();
 				}
+				aia.onBackPressed();
 			}
 		});
 		adb.setNegativeButton("Cancel", null);

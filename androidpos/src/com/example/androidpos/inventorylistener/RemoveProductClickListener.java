@@ -34,6 +34,7 @@ public class RemoveProductClickListener implements OnClickListener {
 				if (pc.removeProduct(_id)) {
 					Toast.makeText(epa, "Remove Success", Toast.LENGTH_LONG)
 							.show();
+					epa.onBackPressed();
 				}
 			}
 		});

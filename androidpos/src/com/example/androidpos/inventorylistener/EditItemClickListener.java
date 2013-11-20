@@ -64,6 +64,7 @@ public class EditItemClickListener implements OnClickListener {
 					Toast.makeText(eia, "Edit Success", Toast.LENGTH_LONG)
 							.show();
 				}
+				eia.onBackPressed();
 			}
 		});
 		adb.setNegativeButton("Cancel", null);
