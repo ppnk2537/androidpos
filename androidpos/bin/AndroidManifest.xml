@@ -40,10 +40,14 @@
         </activity>
         <activity android:name="com.example.androidpos.reportui.SaleLedgerActivity" >
         </activity>
+        <activity android:name="com.example.androidpos.reportui.GraphActivity" >
+        </activity>
+
         <activity
             android:name="com.example.androidpos.StockActivity"
             android:label="@string/title_activity_stock" >
         </activity>
+          <activity android:name="org.achartengine.GraphicalActivity"/>
     </application>
 
 </manifest>

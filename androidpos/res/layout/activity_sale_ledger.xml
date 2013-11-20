@@ -2,15 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@color/orangebg">
-    
+    android:background="@color/orangebg"
+    android:orientation="vertical" >
+
     <TableLayout
         android:id="@+id/inventory_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-       <TableRow
+        <TableRow
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp" >
 
@@ -42,7 +42,6 @@
                 android:text="Date"
                 android:textAppearance="?android:attr/textAppearanceLarge" >
             </TextView>
-                   
         </TableRow>
     </TableLayout>
 
@@ -56,8 +55,15 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total"
         android:layout_gravity="right"
+        android:text="Total"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Show Graph" />
 
 </LinearLayout>
