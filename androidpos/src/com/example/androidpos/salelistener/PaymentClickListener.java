@@ -45,9 +45,7 @@ public class PaymentClickListener implements OnClickListener {
 				cash = Double.valueOf(input_cash.getText().toString());
 				
 				if (cash >= total) {
-					Toast.makeText(sa, "Your Change is: " + (cash - total),
-							Toast.LENGTH_LONG).show();
-					if (sh.updateStock()) {
+					if ( sh.updateStock() ) {
 						sa.setPaymentDisable();
 						showDialog();
 					}
@@ -80,7 +78,8 @@ public class PaymentClickListener implements OnClickListener {
 							@Override
 							public void onClick(DialogInterface dialog,
 									int which) {
-								sa.finish();
+								sh.makeNewSale();
+								sa.updateListView();
 							}
 						});
 				adb.show();
