@@ -124,13 +124,13 @@
             android:layout_centerHorizontal="true"
             android:text="Add" />
 
-        <Button
+        <ImageButton
             android:id="@+id/scanButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/txt_id"
             android:layout_alignParentRight="true"
-            android:text="Scan" />
+              android:src="@drawable/barcode2" />
     </LinearLayout>
 
 </ScrollView>

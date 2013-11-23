@@ -1,15 +1,16 @@
 package com.example.androidpos.inventoryui;
 
-import com.example.androidpos.R;
-import com.example.androidpos.inventorylistener.AddProductClickListener;
-import com.example.androidpos.inventorylistener.ScanProductClickListener;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+
+import com.example.androidpos.R;
+import com.example.androidpos.inventorylistener.AddProductClickListener;
+import com.example.androidpos.inventorylistener.ScanProductClickListener;
 
 /*
  * Add product to Product catalog
@@ -29,7 +30,7 @@ public class AddProductActivity extends Activity {
 	/**The add button*/
 	private Button addButton;
 	/**The scan button*/
-	private Button scanButton;
+	private ImageButton scanButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class AddProductActivity extends Activity {
 		edit_price = (EditText) findViewById(R.id.edit_price);
 		edit_tag = (EditText) findViewById(R.id.edit_tag);
 		addButton = (Button) findViewById(R.id.addButton);
-		scanButton = (Button) findViewById(R.id.scanButton);
+		scanButton = (ImageButton) findViewById(R.id.scanButton);
 
 		AddProductClickListener apcl = new AddProductClickListener(this,edit_id,edit_name,edit_price,edit_tag);
 		addButton.setOnClickListener(apcl);

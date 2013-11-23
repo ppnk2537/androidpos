@@ -109,7 +109,7 @@
             android:ems="10"
             android:inputType="phone" />
         
-        <Button
+        <ImageButton
             android:id="@+id/scanButton"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
@@ -117,7 +117,7 @@
             android:layout_alignBaseline="@+id/input"
             android:layout_alignBottom="@+id/input"
             android:layout_alignRight="@+id/clearButton"
-            android:text="Scan" />
+            android:src="@drawable/barcode2" />
     </LinearLayout>
 
     <LinearLayout

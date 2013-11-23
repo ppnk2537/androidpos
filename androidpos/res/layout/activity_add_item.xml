@@ -183,6 +183,14 @@
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/edit_quantity"
             android:text="Add" />
+        
+        <ImageButton
+            android:id="@+id/scanButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/edit_cost"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/barcode2" />
 
         
     </LinearLayout>

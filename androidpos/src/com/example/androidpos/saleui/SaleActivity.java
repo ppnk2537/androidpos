@@ -11,18 +11,17 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 
 import com.example.androidpos.R;
 import com.example.androidpos.inventorylistener.ScanProductClickListener;
-import com.example.androidpos.inventoryui.EditProductActivity;
-import com.example.androidpos.inventoryui.ProductCatalogActivity;
 import com.example.androidpos.sale.SaleHandler;
 import com.example.androidpos.sale.SaleLineItem;
 import com.example.androidpos.salelistener.AddClickListener;
@@ -33,7 +32,7 @@ public class SaleActivity extends Activity {
 	private Button paymentButton;
 	private Button clearButton;
 	private Button addButton;
-	private Button scanButton;
+	private ImageButton scanButton;
 	private EditText input;
 	private TextView total;
 
@@ -136,7 +135,7 @@ public class SaleActivity extends Activity {
 		paymentButton.setOnClickListener(new PaymentClickListener(this, sh,
 				total));
 
-		scanButton = (Button) findViewById(R.id.scanButton);
+		scanButton = (ImageButton) findViewById(R.id.scanButton);
 		scanButton.setOnClickListener(new ScanProductClickListener(this));
 
 		clearButton = (Button) findViewById(R.id.clearButton);
