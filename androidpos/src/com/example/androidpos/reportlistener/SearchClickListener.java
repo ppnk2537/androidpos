@@ -32,8 +32,8 @@ public class SearchClickListener implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		String d = date.getSelectedItem().toString();
-		String m = date.getSelectedItem().toString();
-		String y = date.getSelectedItem().toString();
+		String m = month.getSelectedItem().toString();
+		String y = year.getSelectedItem().toString();
 		
 		String checkDate = d + "." + m + "." + y;
 		

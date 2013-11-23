@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import android.util.Log;
+
 public class DateStrategy {
 
 	private static DateStrategy instance = null;
@@ -27,7 +29,8 @@ public class DateStrategy {
 		/** Prepare current date for comparing. */
 		String [] c = currentDate.split(" ");
 		String date = c[1];
-		
+		Log.d("date",date);
+		Log.d("cdate",checkDate);
 		return checkDate.equals(date);
 	}
 	
