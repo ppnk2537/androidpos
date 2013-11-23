@@ -376,7 +376,7 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 				+ " last_edit TEXT(100));");
 		Log.d("CREATE STOCK TABLE", "Success");
 		db.execSQL("CREATE TABLE " + LEDGER_TABLE_NAME
-				+ " ( _id INTEGER PRIMARY KEY," + " ledger TEXT(100),"
+				+ " ( _id INTEGER PRIMARY KEY AUTOINCREMENT," + " ledger TEXT(100),"
 				+ " cost TEXT(100)," + " last_edit TEXT(100),"
 				+ "cash DOUBLE);");
 		Log.d("CREATE LEDGER TABLE", "Success");

@@ -8,14 +8,10 @@ import com.example.androidpos.date.DateStrategy;
 
 public class Sale {
 	
-	private static long saleId = 100001;
-	private String _id;
 	private List<SaleLineItem> itemList;
 	private String lastEdit;
 
 	public Sale() {
-		this._id = Long.toString(saleId);
-		saleId += 1;
 		this.itemList = new ArrayList<SaleLineItem>();
 		this.lastEdit = DateStrategy.getInstance().getDate();
 	}
@@ -62,10 +58,6 @@ public class Sale {
 
 	public void clear() {
 		this.itemList = new ArrayList<SaleLineItem>();
-	}
-
-	public String getId() {
-		return this._id;
 	}
 
 	public String getLastEdit() { return this.lastEdit; }

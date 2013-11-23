@@ -23,7 +23,6 @@ public class Ledger {
 	
 	public Ledger(Sale sale, List<Double> cost,double cash) {
 		this.sale = sale;
-		this._id = sale.getId();
 		this.lastEdit = sale.getLastEdit();
 		this.cost = cost;
 		this.cash = cash;
