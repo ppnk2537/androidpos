@@ -41,7 +41,7 @@ public class SaleLedger {
 			return true;
 		return false;
 	}
-	
+
 	/**
 	 * Get all item from inventory table.
 	 * 
@@ -73,4 +73,9 @@ public class SaleLedger {
 			}
 		return list;
 	}
+
+	public Ledger getLedger(String _id) {
+		return dbh.selectLedger(_id);
+	}
+
 }

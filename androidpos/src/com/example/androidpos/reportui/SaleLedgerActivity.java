@@ -15,6 +15,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
@@ -58,6 +60,20 @@ public class SaleLedgerActivity extends Activity {
 		year = (Spinner) findViewById(R.id.year_spinner);
 		searchButton = (Button) findViewById(R.id.searchButton);
 		searchButton.setOnClickListener( new SearchClickListener(this,date,month,year,listmap) );
+		
+		listview.setOnItemClickListener( new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				final int position = arg2;
+				final String _id = listmap.get(position).get("id");
+				Intent ra = new Intent(SaleLedgerActivity.this,RecieptActivity.class);
+				ra.putExtra("_id", _id);
+				startActivity(ra);
+				
+			}
+		});
 	}
 
 	private void updateListView() {

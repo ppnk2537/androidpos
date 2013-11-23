@@ -35,14 +35,14 @@ public class SaleHandler {
 		return this.sale;
 	}
 	
-	public boolean updateLedger(List<Double> cost) {
+	public boolean updateLedger(List<Double> cost,double cash) {
 		ledger = SaleLedger.getInstance();
-		Ledger l = new Ledger(sale, cost);
+		Ledger l = new Ledger(sale, cost, cash);
 		
 		return	ledger.addLedger(l);
 	}
 
-	public boolean updateStock() {
+	public boolean updateStock(double cash) {
 		Stock stock = Stock.getInstance();
 
 		List<SaleLineItem> list = sale.getItemList();
@@ -82,7 +82,7 @@ public class SaleHandler {
 			
 		}
 		
-		return updateLedger(cost);
+		return updateLedger(cost,cash);
 	}
 
 	public void makeNewSale() {

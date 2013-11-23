@@ -5,6 +5,7 @@ import java.util.List;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -45,7 +46,8 @@ public class PaymentClickListener implements OnClickListener {
 				cash = Double.valueOf(input_cash.getText().toString());
 				
 				if (cash >= total) {
-					if ( sh.updateStock() ) {
+					Log.d("cash1", Double.toString(cash) );
+					if ( sh.updateStock(cash) ) {
 						sa.setPaymentDisable();
 						showDialog();
 					}
@@ -89,5 +91,6 @@ public class PaymentClickListener implements OnClickListener {
 		adb.setNegativeButton("No", null);
 		adb.show();
 	}
+	
 
 }

@@ -66,5 +66,6 @@
         <item>2020</item>
     </string-array>
     
+    <string name="title_activity_reciept">RecieptActivity</string>
 
 </resources>
