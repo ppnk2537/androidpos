@@ -1,5 +1,8 @@
 package com.example.androidpos.reportui;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.achartengine.ChartFactory;
 import org.achartengine.chart.PointStyle;
 import org.achartengine.model.TimeSeries;
@@ -12,10 +15,25 @@ import android.content.Intent;
 import android.graphics.Color;
 
 public class GraphActivity {
-	public Intent getIntent(Context context) {
-		int[] x = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-		int[] y = { 30, 34, 45, 57, 77, 89, 100, 111, 123, 145 };
-
+	public Intent getIntent(Context context, List<HashMap<String, String>> listmap) {
+		
+		int len = listmap.size();
+		
+		double [] x = new double[len];
+		int [] y = new int[len];
+		
+		for ( int i = 0 ; i < len ; i ++ ) {
+			String [] tim = listmap.get(i).get("lastedit").split(" ");
+			String [] s = tim[0].split(":");
+			double hr = Double.valueOf(s[0]) + Double.valueOf(s[1])/100;
+			x[i] = hr;
+		}
+		
+		for ( int i = 0 ; i < len ; i ++ ) {
+			int profit = Double.valueOf(listmap.get(i).get("profit")).intValue();
+			y[i] = profit;
+		}
+		
 		TimeSeries series = new TimeSeries("sale1");
 		for (int i = 0; i < x.length; i++) {
 			series.add(x[i], y[i]);
@@ -49,7 +67,7 @@ public class GraphActivity {
 		mRenderer.setPanEnabled(false);
 
 		// X axis
-		mRenderer.setXTitle("Month");
+		mRenderer.setXTitle("Hour");
 		// Y axis
 		mRenderer.setYTitle("Profit");
 

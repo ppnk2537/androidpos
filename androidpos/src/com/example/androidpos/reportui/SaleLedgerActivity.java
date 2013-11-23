@@ -101,7 +101,7 @@ public class SaleLedgerActivity extends Activity {
 
 	public void lineGraphHandler(View view) {
 		GraphActivity line = new GraphActivity();
-		Intent lineIntent = line.getIntent(this);
+		Intent lineIntent = line.getIntent(this,listmap);
 		startActivity(lineIntent);
 	}
 

@@ -41,7 +41,20 @@ public class Item implements Comparable<Item> {
 
 	@Override
 	public int compareTo(Item another) {
-		return (int)(Long.valueOf(this.lastEdit) - Long.valueOf(another.getLastEdit()));
+		String [] tim = lastEdit.split(" ");
+		String [] s = tim[0].split(":");
+		double hr = Double.valueOf(s[0]);
+		double min = Double.valueOf(s[1]);
+		double sec = Double.valueOf(s[2]);
+		hr += min/100 + sec/1000;
+		
+		tim = another.getLastEdit().split(" ");
+		s = tim[0].split(":");
+		double ahr = Double.valueOf(s[0]);
+		double amin = Double.valueOf(s[1]);
+		double asec = Double.valueOf(s[2]);
+		ahr += amin/100 + asec/1000;
+		return (int)(hr - ahr);
 	}
 
 }
