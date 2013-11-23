@@ -1,7 +1,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent" 
+    android:background="@color/orangebg">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,90 +20,86 @@
             android:layout_height="wrap_content" >
 
             <TextView
-            android:id="@+id/txt_id"
+                android:id="@+id/txt_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="ID"
+                android:textSize="20dp" />
+
+            <Button
+            android:id="@+id/findButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="10dp"
-            android:text="ID"
-            android:textSize="20dp" />
-            <EditText
-            android:id="@+id/edit_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/txt_id"
-            android:layout_below="@+id/txt_id"
-            android:digits="1234567890"
-            android:ems="10"
-            android:inputType="phone" />
+
+            android:text="find item by id" />
         </LinearLayout>
-        
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
-            <TextView
+            <EditText
+                android:id="@+id/edit_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/txt_id"
+                android:layout_below="@+id/txt_id"
+                android:layout_weight="1"
+                android:digits="1234567890"
+                android:ems="10"
+                android:inputType="phone" />
+            
+            <ImageButton
+                android:id="@+id/scanButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/edit_cost"
+                android:layout_alignParentRight="true"
+                android:layout_weight="6"
+                android:background="@drawable/scanbutton"
+                android:scaleType="centerInside"
+                android:src="@drawable/barcode2" />
+
+        </LinearLayout>
+
+        <TextView
             android:id="@+id/txt_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/edit_id"
-            android:layout_below="@+id/edit_id"
             android:text="Name:"
             android:textSize="20dp" />
-            
-            <EditText
+
+        <EditText
             android:id="@+id/edit_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/txt_name"
-            android:layout_below="@+id/txt_name"
-            android:ems="10" >
+            android:ems="10" />
 
-            <requestFocus
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </EditText>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-            
-            <TextView
+        <TextView
             android:id="@+id/txt_cost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/edit_cost"
-            android:layout_below="@+id/edit_name"
             android:layout_marginTop="10dp"
             android:text="Cost:"
             android:textSize="20dp" />
-            
-            <EditText
+
+        <EditText
             android:id="@+id/edit_cost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/edit_name"
-            android:layout_below="@+id/txt_cost"
             android:digits="1234567890"
             android:ems="10"
-            android:inputType="phone" />
+            android:inputType="phone" >
 
-        
-        </LinearLayout>
+            <requestFocus />
+        </EditText>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-<TextView
+        <TextView
             android:id="@+id/txt_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/txt_cost"
-            android:layout_below="@+id/edit_cost"
             android:layout_marginTop="10dp"
             android:text="Price"
             android:textSize="20dp" />
@@ -111,49 +108,30 @@
             android:id="@+id/edit_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/txt_price"
-            android:layout_below="@+id/txt_price"
             android:digits="1234567890"
             android:ems="10"
             android:inputType="phone" />
-            
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <TextView
+        <TextView
             android:id="@+id/txt_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/edit_price"
-            android:layout_below="@+id/edit_price"
             android:layout_marginTop="10dp"
             android:text="Quantity:"
             android:textSize="20dp" />
-            
-            <EditText
+
+        <EditText
             android:id="@+id/edit_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/txt_quantity"
-            android:layout_below="@+id/txt_quantity"
             android:digits="1234567890"
             android:ems="10"
             android:inputType="phone" />
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <TextView
+        <TextView
             android:id="@+id/txt_tag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/edit_quantity"
-            android:layout_below="@+id/edit_quantity"
             android:layout_marginTop="10dp"
             android:text="Tag"
             android:textSize="20dp" />
@@ -162,19 +140,9 @@
             android:id="@+id/edit_tag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/txt_tag"
-            android:layout_below="@+id/txt_tag"
             android:ems="10" />
-        </LinearLayout>
 
-        <Button
-            android:id="@+id/findButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/edit_id"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="22dp"
-            android:text="find item by id" />
+        
 
         <Button
             android:id="@+id/addButton"
@@ -182,15 +150,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/edit_quantity"
+            android:layout_gravity="center"
             android:text="Add" />
-        
-        <ImageButton
-            android:id="@+id/scanButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/edit_cost"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/barcode2" />
 
         
     </LinearLayout>
