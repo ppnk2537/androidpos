@@ -23,9 +23,17 @@ public class DateStrategy {
 		return instance;
 	}
 	
+	public static boolean isDate(String checkDate, String currentDate) {
+		/** Prepare current date for comparing. */
+		String [] c = currentDate.split(" ");
+		String date = c[1];
+		
+		return checkDate.equals(date);
+	}
+	
 	public String getDate() {
 		Date date = calendar.getTime();
-		SimpleDateFormat sdf = new SimpleDateFormat("kk:mm:ss dd.MM.yy");
+		SimpleDateFormat sdf = new SimpleDateFormat("kk:mm:ss dd.MMM.yyyy");
 		return String.format("" + sdf.format(date));
 	}
 }

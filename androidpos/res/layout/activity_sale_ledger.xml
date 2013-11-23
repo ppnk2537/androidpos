@@ -5,17 +5,49 @@
     android:background="@color/orangebg"
     android:orientation="vertical" >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal" >
+
+        <Spinner
+            android:id="@+id/date_spinner"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:entries="@array/date" />
+        
+        <Spinner
+            android:id="@+id/mon_spinner"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:entries="@array/month" />
+        
+        <Spinner
+            android:id="@+id/year_spinner"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:entries="@array/year" />
+        
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="Search" />
+
+    </LinearLayout>
+    
     <TableLayout
         android:id="@+id/inventory_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
         <TableRow
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp" >
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
 
             <TextView
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:layout_gravity="center"
                 android:layout_weight="1"
@@ -48,16 +80,10 @@
     <ListView
         android:id="@+id/itemlist"
         android:layout_width="match_parent"
-        android:layout_height="230dp" >
-    </ListView>
+        android:layout_height="108dp"
+        android:layout_weight="0.25" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="Total"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+    </ListView>
 
     <Button
         android:id="@+id/button1"

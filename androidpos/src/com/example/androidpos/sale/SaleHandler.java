@@ -84,4 +84,8 @@ public class SaleHandler {
 		
 		return updateLedger(cost);
 	}
+
+	public void makeNewSale() {
+		this.sale = new Sale();
+	}
 }

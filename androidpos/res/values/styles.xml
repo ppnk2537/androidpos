@@ -37,6 +37,7 @@
     <item name="android:shadowColor" >#000000</item>
     <item name="android:shadowDx" >1</item>
     <item name="android:shadowDy" >1</item>
+    <item name="android:background">#FDDB00</item>
     <item name="android:shadowRadius" >2</item>
    
   	</style>

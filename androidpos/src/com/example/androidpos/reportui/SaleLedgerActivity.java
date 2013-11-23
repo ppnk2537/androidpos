@@ -7,6 +7,7 @@ import com.example.androidpos.R;
 import com.example.androidpos.inventoryui.EditProductActivity;
 import com.example.androidpos.inventoryui.ProductCatalogActivity;
 import com.example.androidpos.report.SaleLedger;
+import com.example.androidpos.reportlistener.SearchClickListener;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +17,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
+import android.widget.Spinner;
 
 public class SaleLedgerActivity extends Activity {
 
@@ -25,13 +26,17 @@ public class SaleLedgerActivity extends Activity {
 	private ListView listview;
 	private SimpleAdapter simAdapter;
 	private Button showGraph;
+	private Spinner date;
+	private Spinner month;
+	private Spinner year;
+	private Button searchButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sale_ledger);
 		listview = (ListView) findViewById(R.id.itemlist);
-
+		
 		sl = SaleLedger.getInstance();
 		showGraph = (Button) findViewById(R.id.button1);
 
@@ -43,6 +48,16 @@ public class SaleLedgerActivity extends Activity {
 		});
 
 		updateListView();
+		
+		initComponent();
+	}
+
+	private void initComponent() {
+		date = (Spinner) findViewById(R.id.date_spinner);
+		month = (Spinner) findViewById(R.id.mon_spinner);
+		year = (Spinner) findViewById(R.id.year_spinner);
+		searchButton = (Button) findViewById(R.id.searchButton);
+		searchButton.setOnClickListener( new SearchClickListener(this,date,month,year,listmap) );
 	}
 
 	private void updateListView() {
@@ -54,6 +69,14 @@ public class SaleLedgerActivity extends Activity {
 		listview.setAdapter(simAdapter);
 	}
 
+	public void updateListView(List<HashMap<String, String>> listmap) {
+		simAdapter = new SimpleAdapter(this, listmap,
+				R.layout.activity_column_sale_ledger, new String[] { "id",
+						"profit", "lastedit" }, new int[] { R.id.colId,
+						R.id.colProfit, R.id.colDate });
+		listview.setAdapter(simAdapter);
+	}
+	
 	@Override
 	public void onBackPressed() {
 		updateListView();
