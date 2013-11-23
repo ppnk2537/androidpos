@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@color/orangebg">
+    android:background="@color/orangebg"
+    android:orientation="vertical" >
 
     <TableLayout
         android:id="@+id/inventory_item"
@@ -15,11 +14,14 @@
         android:layout_alignParentTop="true" >
 
         <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp" >
 
             <TextView
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:layout_gravity="center"
                 android:layout_weight="1"
@@ -29,6 +31,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:layout_gravity="center"
                 android:layout_weight="1"
@@ -39,6 +42,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:layout_gravity="center"
                 android:layout_weight="1"
@@ -49,6 +53,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_column="3"
                 android:layout_gravity="center"
                 android:layout_weight="1"
@@ -58,6 +63,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_column="3"
                 android:layout_gravity="center"
                 android:layout_weight="1"
@@ -67,26 +73,88 @@
         </TableRow>
     </TableLayout>
 
-    <Button
-        android:id="@+id/clearButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/paymentButton"
-        android:layout_alignBottom="@+id/paymentButton"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
-        android:text="Clear" />
+    <ListView
+        android:id="@+id/itemlist"
+        android:layout_width="match_parent"
+        android:layout_height="262dp"
+        android:layout_above="@+id/scanButton"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/inventory_item" >
+    </ListView>
 
-    <Button
-        android:id="@+id/paymentButton"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/addButton"
-        android:layout_alignBottom="@+id/addButton"
-        android:layout_centerHorizontal="true"
-        android:text="payment" />
+        android:layout_height="wrap_content" >
 
-    <TextView
+        <TextView
+            android:id="@+id/txt_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/input"
+            android:layout_alignBottom="@+id/input"
+            android:layout_alignRight="@+id/addButton"
+            android:layout_marginRight="18dp"
+            android:text="id"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/clearButton"
+            android:layout_marginBottom="15dp"
+            android:layout_toLeftOf="@+id/scanButton"
+            android:layout_toRightOf="@+id/addButton"
+            android:digits="1234567890"
+            android:ems="10"
+            android:inputType="phone" />
+        
+        <Button
+            android:id="@+id/scanButton"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/input"
+            android:layout_alignBottom="@+id/input"
+            android:layout_alignRight="@+id/clearButton"
+            android:text="Scan" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/clearButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/paymentButton"
+            android:layout_alignBottom="@+id/paymentButton"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="Clear" />
+
+        
+
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="44dp"
+            android:layout_marginRight="21dp"
+            android:layout_toLeftOf="@+id/paymentButton"
+            android:text="add" />
+
+        <Button
+            android:id="@+id/paymentButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/addButton"
+            android:layout_alignBottom="@+id/addButton"
+            android:layout_centerHorizontal="true"
+            android:text="payment" />
+        <TextView
         android:id="@+id/total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -94,62 +162,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
         android:text="total" />
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/clearButton"
-        android:layout_marginBottom="15dp"
-        android:layout_toLeftOf="@+id/scanButton"
-        android:layout_toRightOf="@+id/addButton"
-        android:digits="1234567890"
-        android:ems="10"
-        android:inputType="phone" >
-
-        <requestFocus />
-    </EditText>
-
-    <Button
-        android:id="@+id/scanButton"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/input"
-        android:layout_alignBottom="@+id/input"
-        android:layout_alignRight="@+id/clearButton"
-        android:text="Scan" 
-        />
-
-    <TextView
-        android:id="@+id/txt_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/input"
-        android:layout_alignBottom="@+id/input"
-        android:layout_alignRight="@+id/addButton"
-        android:layout_marginRight="18dp"
-        android:text="id"
-        android:textSize="20dp" />
-
-    <ListView
-        android:id="@+id/itemlist"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/scanButton"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/inventory_item" >
-
-    </ListView>
-
-    <Button
-        android:id="@+id/addButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="44dp"
-        android:layout_marginRight="21dp"
-        android:layout_toLeftOf="@+id/paymentButton"
-        android:text="add"/>
-
-</RelativeLayout>
+</LinearLayout>
