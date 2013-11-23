@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/orangebg"
+   >
+
+    <TextView
+        android:id="@+id/colQuan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.40"
+        android:text="quantity"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/colName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.39"
+        android:text="name"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/colPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="price"
+        android:textSize="20dp"  />
+   
+</LinearLayout>
