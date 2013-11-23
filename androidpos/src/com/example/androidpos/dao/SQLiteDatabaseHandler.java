@@ -1,5 +1,7 @@
 package com.example.androidpos.dao;
 
+import java.util.Arrays;
+
 import com.example.androidpos.inventory.Item;
 import com.example.androidpos.inventory.Product;
 import com.example.androidpos.report.Ledger;
@@ -120,6 +122,35 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 	}
 
 	@Override
+	public Ledger selectLedger(String _id) {
+		try {
+			String[] data = null;
+
+			SQLiteDatabase db = this.getReadableDatabase();
+
+			Cursor cursor = db.query(LEDGER_TABLE_NAME, new String[] { "*" },
+					"_id = ?", new String[] { String.valueOf(_id) },
+					null, null, null);
+
+			if (cursor != null)
+				if (cursor.moveToFirst()) {
+					data = new String[cursor.getColumnCount()];
+					for (int i = 0; i < data.length; i++) {
+						data[i] = cursor.getString(i);
+					}
+				}
+
+			/** Close database and cursor. */
+			cursor.close();
+			db.close();
+			
+			return new Ledger(data);
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	@Override
 	public String[][] selectAll(String tableName) {
 
 		try {
@@ -217,6 +248,7 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 			values.put("ledger", l.getLedger());
 			values.put("cost", l.getCost());
 			values.put("last_edit", l.getLastEdit());
+			values.put("cash", l.getCash());
 
 			long rows = db.insert(LEDGER_TABLE_NAME, null, values);
 
@@ -345,7 +377,8 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 		Log.d("CREATE STOCK TABLE", "Success");
 		db.execSQL("CREATE TABLE " + LEDGER_TABLE_NAME
 				+ " ( _id INTEGER PRIMARY KEY," + " ledger TEXT(100),"
-				+ " cost TEXT(100)," + " last_edit TEXT(100));");
+				+ " cost TEXT(100)," + " last_edit TEXT(100),"
+				+ "cash DOUBLE);");
 		Log.d("CREATE LEDGER TABLE", "Success");
 	}
 

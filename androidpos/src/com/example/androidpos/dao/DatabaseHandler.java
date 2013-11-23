@@ -87,12 +87,15 @@ public interface DatabaseHandler {
 	
 	/**
 	 * Delete data from database.
-	 * @param name of Stockription.
+	 * @param name of Stockription.s
 	 * @return number of row that has been delete, otherwise -1.
 	 */
 	public long deleteStock( String name );
 
 
 	public long insertLedger(Ledger l);
+
+
+	public Ledger selectLedger(String _id);
 		
 }

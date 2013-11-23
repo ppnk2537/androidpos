@@ -41,7 +41,7 @@ public class SaleLedger {
 			return true;
 		return false;
 	}
-	
+
 	/**
 	 * Get all item from inventory table.
 	 * 
@@ -68,10 +68,14 @@ public class SaleLedger {
 				}
 				double profit = total_price - total_cost;
 				map.put("profit", Double.toString(profit));
-				Log.d("date", data[i][3]);
 				map.put("lastedit", data[i][3]);
 				list.add(map);
 			}
 		return list;
 	}
+
+	public Ledger getLedger(String _id) {
+		return dbh.selectLedger(_id);
+	}
+
 }

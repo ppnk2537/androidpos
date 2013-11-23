@@ -4,10 +4,16 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.example.androidpos.R;
+import com.example.androidpos.inventoryui.EditProductActivity;
+import com.example.androidpos.inventoryui.ProductCatalogActivity;
 import com.example.androidpos.report.SaleLedger;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -27,6 +33,20 @@ public class SaleLedgerActivity extends Activity {
 		sl = SaleLedger.getInstance();
 
 		updateListView();
+		
+		listview.setOnItemClickListener( new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				final int position = arg2;
+				final String _id = listmap.get(position).get("id");
+				Intent ra = new Intent(SaleLedgerActivity.this,RecieptActivity.class);
+				ra.putExtra("_id", _id);
+				startActivity(ra);
+				
+			}
+		});
 	}
 
 	private void updateListView() {
