@@ -68,7 +68,6 @@ public class SaleLedger {
 				}
 				double profit = total_price - total_cost;
 				map.put("profit", Double.toString(profit));
-				Log.d("date", data[i][3]);
 				map.put("lastedit", data[i][3]);
 				list.add(map);
 			}

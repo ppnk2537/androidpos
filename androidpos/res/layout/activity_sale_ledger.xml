@@ -2,20 +2,54 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@color/orangebg">
+    android:background="@color/orangebg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal" >
+
+        <Spinner
+            android:id="@+id/date_spinner"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:entries="@array/date" />
+        
+        <Spinner
+            android:id="@+id/mon_spinner"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:entries="@array/month" />
+        
+        <Spinner
+            android:id="@+id/year_spinner"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:entries="@array/year" />
+        
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="Search" />
+
+    </LinearLayout>
     
     <TableLayout
         android:id="@+id/inventory_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-       <TableRow
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp" >
 
             <TextView
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:layout_gravity="center"
                 android:layout_weight="1"
@@ -42,22 +76,16 @@
                 android:text="Date"
                 android:textAppearance="?android:attr/textAppearanceLarge" >
             </TextView>
-                   
         </TableRow>
     </TableLayout>
 
     <ListView
         android:id="@+id/itemlist"
         android:layout_width="match_parent"
-        android:layout_height="230dp" >
+        android:layout_height="108dp"
+        android:layout_weight="0.25" >
+
     </ListView>
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total"
-        android:layout_gravity="right"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </LinearLayout>
