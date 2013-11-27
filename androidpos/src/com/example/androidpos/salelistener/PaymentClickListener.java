@@ -46,9 +46,8 @@ public class PaymentClickListener implements OnClickListener {
 				cash = Double.valueOf(input_cash.getText().toString());
 				
 				if (cash >= total) {
-					Log.d("cash1", Double.toString(cash) );
 					if ( sh.updateStock(cash) ) {
-						sa.setPaymentDisable();
+						sa.setPaymentEnabled(false);
 						showDialog();
 					}
 				} else
@@ -72,7 +71,7 @@ public class PaymentClickListener implements OnClickListener {
 					total += Double.valueOf(sl.getTotalPrice());
 				}
 				
-				s += "Cash : " + cash + " Tax : " + (total * 0.07) + "\nTotal : " + total + " Change : " + (cash - total);
+				s += "Cash : " + cash + " Tax : " + String.format("%.2f", total * 0.07) + "\nTotal : " + total + " Change : " + (cash - total);
 
 				adb.setMessage(s);
 				adb.setPositiveButton("Yes",
@@ -82,6 +81,7 @@ public class PaymentClickListener implements OnClickListener {
 									int which) {
 								sh.makeNewSale();
 								sa.updateListView();
+								sa.setPaymentEnabled(true);
 							}
 						});
 				adb.show();

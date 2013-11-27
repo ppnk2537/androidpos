@@ -1,7 +1,5 @@
 package com.example.androidpos.dao;
 
-import java.util.Arrays;
-
 import com.example.androidpos.inventory.Item;
 import com.example.androidpos.inventory.Product;
 import com.example.androidpos.report.Ledger;
@@ -367,7 +365,7 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper implements
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL("CREATE TABLE " + CATALOG_TABLE_NAME
-				+ "( _id INTEGER PRIMARY KEY," + " name TEXT(100),"
+				+ "( _id TEXT PRIMARY KEY," + " name TEXT(100),"
 				+ " price DOUBLE," + " tag TEXT(100),"
 				+ " last_edit TEXT(100));");
 		Log.d("CREATE CATALOG TABLE", "Success");

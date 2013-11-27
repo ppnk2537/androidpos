@@ -167,8 +167,8 @@ public class SaleActivity extends Activity {
 		}
 	}
 
-	public void setPaymentDisable() {
-		this.paymentButton.setEnabled(false);
+	public void setPaymentEnabled(boolean bool) {
+		this.paymentButton.setEnabled(bool);
 	}
 
 	@Override

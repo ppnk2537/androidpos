@@ -54,7 +54,6 @@
         <item>Oct</item>
         <item>Nov</item>
         <item>Dec</item>
-        <item>None</item>
     </string-array>
     
     <string-array name="year">
@@ -66,7 +65,6 @@
         <item>2018</item>
         <item>2019</item>
         <item>2020</item>
-        <item>None</item>
     </string-array>
     
     <string name="title_activity_reciept">RecieptActivity</string>
