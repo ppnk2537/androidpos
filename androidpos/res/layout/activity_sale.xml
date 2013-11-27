@@ -6,6 +6,106 @@
     android:background="@color/orangebg"
     android:orientation="vertical" >
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:paddingTop="5dp">
+
+        <TextView
+            android:id="@+id/txt_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/input"
+            android:layout_alignBottom="@+id/input"
+            android:layout_alignRight="@+id/addButton"
+            android:layout_marginLeft="10dp"
+            android:text="id"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/clearButton"
+            android:digits="1234567890"
+            android:ems="10"
+            android:inputType="phone" >
+
+            <requestFocus />
+        </EditText>
+
+        <ImageButton
+            android:id="@+id/scanButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/edit_cost"
+            android:layout_alignParentRight="true"
+            android:layout_weight="6"
+            android:background="@drawable/scanbutton"
+            android:scaleType="centerInside"
+            android:src="@drawable/barcode2" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/clearButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/paymentButton"
+            android:layout_alignBottom="@+id/paymentButton"
+            android:layout_alignParentRight="true"
+            android:layout_weight="1"
+            android:text="Clear" />
+
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="add" />
+
+        <Button
+            android:id="@+id/paymentButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/addButton"
+            android:layout_alignBottom="@+id/addButton"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:text="payment" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/txt_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:text="Total: "
+                android:textColor="@color/red"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="8dp"
+                android:text="0.00"
+                android:textColor="@color/red"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
     <TableLayout
         android:id="@+id/inventory_item"
         android:layout_width="match_parent"
@@ -76,99 +176,10 @@
     <ListView
         android:id="@+id/itemlist"
         android:layout_width="match_parent"
-        android:layout_height="262dp"
+        android:layout_height="fill_parent"
         android:layout_above="@+id/scanButton"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/inventory_item" >
     </ListView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/txt_total"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total: "
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TextView
-            android:id="@+id/total"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:text="0.00"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/txt_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/input"
-            android:layout_alignBottom="@+id/input"
-            android:layout_alignRight="@+id/addButton"
-            android:layout_marginLeft="10dp"
-            android:text="id"
-            android:textSize="20dp" />
-
-        <EditText
-            android:id="@+id/input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/clearButton"
-            android:digits="1234567890"
-            android:ems="10"
-            android:inputType="phone" />
-
-        
-         <ImageButton
-                android:id="@+id/scanButton"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_above="@+id/edit_cost"
-                android:layout_alignParentRight="true"
-                android:layout_weight="6"
-                android:background="@drawable/scanbutton"
-                android:scaleType="centerInside"
-                android:src="@drawable/barcode2" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-        <Button
-            android:id="@+id/clearButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/paymentButton"
-            android:layout_alignBottom="@+id/paymentButton"
-            android:layout_alignParentRight="true"
-            android:layout_weight="1"
-            android:text="Clear" />
-
-        <Button
-            android:id="@+id/addButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="add" />
-
-        <Button
-            android:id="@+id/paymentButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/addButton"
-            android:layout_alignBottom="@+id/addButton"
-            android:layout_centerHorizontal="true"
-            android:layout_weight="1"
-            android:text="payment" />
-    </LinearLayout>
 
 </LinearLayout>
