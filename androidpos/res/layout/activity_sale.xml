@@ -23,7 +23,7 @@
             android:textSize="20dp" />
 
         <EditText
-            android:id="@+id/input"
+            android:id="@+id/einput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/clearButton"

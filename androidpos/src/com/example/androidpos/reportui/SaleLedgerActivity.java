@@ -101,7 +101,12 @@ public class SaleLedgerActivity extends Activity {
 
 	public void lineGraphHandler(View view) {
 		GraphActivity line = new GraphActivity();
-		Intent lineIntent = line.getIntent(this,listmap);
+		String name = date.getSelectedItem().toString();
+		if ( name.equals("None") )
+			name = "Month";
+		else
+			name = "Day";
+		Intent lineIntent = line.getIntent(this,listmap,name);
 		startActivity(lineIntent);
 	}
 

@@ -37,11 +37,20 @@ public class SearchClickListener implements OnClickListener {
 		
 		String checkDate = d + "." + m + "." + y;
 		
+		
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 		
-		for ( HashMap<String, String> item : listmap ) {
-			if ( DateStrategy.isDate(checkDate, item.get("lastedit")) )
-					list.add(item);
+		if ( d.equals("None") ) {
+			for ( HashMap<String, String> item : listmap ) {
+				if ( DateStrategy.isMon(checkDate, item.get("lastedit")) )
+						list.add(item);
+			}
+		}
+		else {
+			for ( HashMap<String, String> item : listmap ) {
+				if ( DateStrategy.isDate(checkDate, item.get("lastedit")) )
+						list.add(item);
+			}
 		}
 		
 		sla.updateListView(list);

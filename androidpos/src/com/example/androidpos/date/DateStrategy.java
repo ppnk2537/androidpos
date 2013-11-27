@@ -1,6 +1,7 @@
 package com.example.androidpos.date;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -29,10 +30,20 @@ public class DateStrategy {
 		/** Prepare current date for comparing. */
 		String [] c = currentDate.split(" ");
 		String date = c[1];
-		Log.d("date",date);
-		Log.d("cdate",checkDate);
 		return checkDate.equals(date);
 	}
+	
+	public static boolean isMon(String checkMon, String currentMon) {
+		String [] c = currentMon.split(" ");
+		String currentmonth = c[1].substring(2);
+		String checkmonth = checkMon.substring(4);
+		
+		Log.d("", checkmonth);
+		Log.d("", currentmonth);
+		return checkmonth.equals(currentmonth);
+	}
+	
+	
 	
 	public String getDate() {
 		calendar = Calendar.getInstance();

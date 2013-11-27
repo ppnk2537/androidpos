@@ -128,7 +128,7 @@ public class SaleActivity extends Activity {
 
 		sh = new SaleHandler();
 
-		input = (EditText) findViewById(R.id.input);
+		input = (EditText) findViewById(R.id.einput);
 		total = (TextView) findViewById(R.id.total);
 
 		paymentButton = (Button) findViewById(R.id.paymentButton);

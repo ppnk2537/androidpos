@@ -15,28 +15,56 @@ import android.content.Intent;
 import android.graphics.Color;
 
 public class GraphActivity {
-	public Intent getIntent(Context context, List<HashMap<String, String>> listmap) {
+	public Intent getIntent(Context context, List<HashMap<String, String>> listmap, String name) {
 		
-		int len = listmap.size();
+		int len = listmap.size() + 1;
 		
 		double [] x = new double[len];
-		int [] y = new int[len];
+		double [] y = new double[len];
 		
-		for ( int i = 0 ; i < len ; i ++ ) {
-			String [] tim = listmap.get(i).get("lastedit").split(" ");
-			String [] s = tim[0].split(":");
-			double hr = Double.valueOf(s[0]) + Double.valueOf(s[1])/100;
-			x[i] = hr;
+		double [] xl = new double[32];
+		double [] yl = new double[32];
+		
+		if ( !name.equals("Month") ) {
+			xl = new double[len];
+			yl = new double[len];
+			for ( int i = 1 ; i < len ; i ++ ) {
+				String [] tim = listmap.get(i-1).get("lastedit").split(" ");
+				String [] s = tim[0].split(":");
+				double hr = Double.valueOf(s[0]) + Double.valueOf(s[1])/100 + Double.valueOf(s[2])/10000;
+				xl[i] = hr;
+			}
+			
+			for ( int i = 1 ; i < len ; i ++ ) {
+				double profit = Double.valueOf(listmap.get(i-1).get("profit"));
+				yl[i] = profit;
+			}
 		}
-		
-		for ( int i = 0 ; i < len ; i ++ ) {
-			int profit = Double.valueOf(listmap.get(i).get("profit")).intValue();
-			y[i] = profit;
+		else {
+			for ( int i = 1 ; i < len ; i ++ ) {
+				String [] tim = listmap.get(i-1).get("lastedit").split(" ");
+				String s = tim[1].substring(0,2);
+				x[i] = Double.valueOf(s);
+			}
+			
+			for ( int i = 1 ; i < len ; i ++ ) {
+				double profit = Double.valueOf(listmap.get(i-1).get("profit"));
+				y[i] = profit;
+			}
+			
+			for ( int i = 1 ; i < len ; i ++ ) {
+				yl[(int)x[i]] += y[i];
+			}
+			
+			for ( int i = 0 ; i <= 31 ; i ++ ) {
+				xl[i] = i;
+			}
+			
 		}
 		
 		TimeSeries series = new TimeSeries("sale1");
-		for (int i = 0; i < x.length; i++) {
-			series.add(x[i], y[i]);
+		for (int i = 0; i < xl.length; i++) {
+			series.add(xl[i], yl[i]);
 		}
 
 		XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
@@ -53,7 +81,7 @@ public class GraphActivity {
 
 		XYMultipleSeriesRenderer mRenderer = new XYMultipleSeriesRenderer();
 		mRenderer.addSeriesRenderer(renderer);
-		mRenderer.setChartTitle("Profit in the day");
+		mRenderer.setChartTitle("Profit in the " + name);
 		mRenderer.setChartTitleTextSize(25);
 		mRenderer.setApplyBackgroundColor(true);
 		mRenderer.setBackgroundColor(Color.BLACK);
@@ -64,10 +92,20 @@ public class GraphActivity {
 		mRenderer.setLegendTextSize(20);
 		// mRenderer.setAxesColor(Color.GREEN);
 		mRenderer.setZoomButtonsVisible(true);
-		mRenderer.setPanEnabled(false);
-
+		
+		if ( name.equals("Month") ) {
+			name = "day";
+			mRenderer.setXAxisMax(31);
+			mRenderer.setXAxisMin(0);
+		}
+		else {
+			name = "hour";
+			mRenderer.setXAxisMax(24);
+			mRenderer.setXAxisMin(0);
+		}
+			
 		// X axis
-		mRenderer.setXTitle("Hour");
+		mRenderer.setXTitle(name);
 		// Y axis
 		mRenderer.setYTitle("Profit");
 
