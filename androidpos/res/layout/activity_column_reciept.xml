@@ -3,31 +3,60 @@
     android:id="@+id/linearLayout1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/orangebg"
    >
 
-    <TextView
-        android:id="@+id/colQuan"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1.40"
-        android:text="quantity"
-        android:textSize="20dp" />
+        android:layout_weight="0.2" >
 
-    <TextView
-        android:id="@+id/colName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1.39"
-        android:text="name"
-        android:textSize="20dp" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:padding="1dip" >
 
-    <TextView
-        android:id="@+id/colPrice"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:text="price"
-        android:textSize="20dp"  />
+            <TextView
+                android:id="@+id/colQuan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/pinkColumn"
+                android:gravity="left"
+                android:text="Quantity"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:padding="1dip" >
+
+            <TextView
+                android:id="@+id/colName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/pinkColumn"
+                android:gravity="left"
+                android:text="Name"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:padding="1dip" >
+
+            <TextView
+                android:id="@+id/colPrice"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/pinkColumn"
+                android:gravity="left"
+                android:text="Price"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </TableRow>
+    </LinearLayout>
    
 </LinearLayout>
