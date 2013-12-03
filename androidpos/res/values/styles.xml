@@ -22,7 +22,7 @@
     </style>
 
     <style name="WindowTitleBackground">
-        <item name="android:background">@color/orange</item>
+        <item name="android:background">@color/pinky</item>
         <item name="android:textSize">15dp</item>
     </style>
 

@@ -3,13 +3,12 @@
     android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/orangebg"
     android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" 
-        android:paddingTop="5dp">
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp" >
 
         <TextView
             android:id="@+id/txt_id"
@@ -44,7 +43,6 @@
             android:background="@drawable/scanbutton"
             android:scaleType="centerInside"
             android:src="@drawable/barcode2" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -89,8 +87,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:text="Total: "
-                android:textColor="@color/red"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/red" />
 
             <TextView
                 android:id="@+id/total"
@@ -99,79 +97,91 @@
                 android:layout_gravity="bottom"
                 android:layout_marginLeft="8dp"
                 android:text="0.00"
-                android:textColor="@color/red"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/red" />
         </LinearLayout>
-
     </LinearLayout>
 
-    <TableLayout
-        android:id="@+id/inventory_item"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" >
+        android:layout_height="wrap_content" >
 
         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp" >
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.2"
+            android:padding="1dip" >
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="left"
+                android:background="#FF6699"
+                android:gravity="center"
                 android:text="ID"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="left"
-                android:text="Name"
-                android:textAppearance="?android:attr/textAppearanceLarge" >
-            </TextView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="2"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="left"
-                android:text="Quan."
-                android:textAppearance="?android:attr/textAppearanceLarge" >
-            </TextView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="3"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="left"
-                android:text="Price"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="3"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="left"
-                android:text="Total"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
         </TableRow>
-    </TableLayout>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.2"
+            android:padding="1dip" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FF6699"
+                android:gravity="center"
+                android:text="Name"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.2"
+            android:padding="1dip" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FF6699"
+                android:gravity="center"
+                android:text="Quan."
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.2"
+            android:padding="1dip" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FF6699"
+                android:gravity="center"
+                android:text="Price"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.2"
+            android:padding="1dip" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FF6699"
+                android:gravity="center"
+                android:text="Total"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </TableRow>
+    </LinearLayout>
 
     <ListView
         android:id="@+id/itemlist"

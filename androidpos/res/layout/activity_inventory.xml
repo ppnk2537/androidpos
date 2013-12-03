@@ -3,8 +3,7 @@
     android:id="@android:id/tabhost"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context=".InventoryTabsActivity" 
-    android:background="@color/orangebg">
+    tools:context=".InventoryTabsActivity" >
 
     <LinearLayout
         android:id="@+id/LinearLayout1"
