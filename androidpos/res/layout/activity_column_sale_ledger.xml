@@ -27,13 +27,14 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/colProfit"
+            
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
             android:padding="1dip" >
 
             <TextView
+                android:id="@+id/colProfit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/pinkColumn"
