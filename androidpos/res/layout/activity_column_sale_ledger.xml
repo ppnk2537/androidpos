@@ -11,8 +11,8 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.4"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
             android:padding="1dip" >
 
             <TextView
@@ -20,17 +20,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/pinkColumn"
-                android:gravity="left"
                 android:text="ID"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
         </TableRow>
 
         <TableRow
-            
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.2"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
             android:padding="1dip" >
 
             <TextView
@@ -38,15 +35,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/pinkColumn"
-                android:gravity="left"
                 android:text="Profit"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.4"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
             android:padding="1dip" >
 
             <TextView
@@ -54,10 +50,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/pinkColumn"
-                android:gravity="left"
                 android:text="Date"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
         </TableRow>
     </LinearLayout>
    
