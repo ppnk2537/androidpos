@@ -35,7 +35,7 @@ public class PaymentClickListener implements OnClickListener {
 		final double total = Double.valueOf(this.total.getText().toString());
 		final AlertDialog.Builder adb = new AlertDialog.Builder(sa);
 		adb.setTitle("Your charge is " + total);
-		adb.setMessage("How many?");
+		adb.setMessage("How much?");
 		final EditText input_cash = new EditText(sa);
 		input_cash.setRawInputType(Configuration.KEYBOARD_12KEY);
 		adb.setView(input_cash);
